@@ -1,0 +1,39 @@
+{
+  "description": "Build yourself an adblocker",
+  "manifest_version": 2,
+  "name": "blockrz",
+  "version": "0.0.1",
+  "homepage_url": "https://github.com/cliqz-oss/blockrz",
+  "icons": {
+    "48": "cliqz.png"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.bundle.js"
+    ]
+  },
+  "browser_action": {
+    "default_title": "Blockrz"
+  },
+  "content_scripts": [
+    {
+      "match_about_blank": true,
+      "all_frames": true,
+      "js": [
+        "content-script.bundle.js"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

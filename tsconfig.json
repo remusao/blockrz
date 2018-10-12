@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "types": ["chrome"],
+    "target": "ES3",
+    "lib": ["ES6", "DOM"],
+    "newLine": "lf",
+    "removeComments": true,
+    "moduleResolution": "Node",
+    "removeComments": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "strict": true
+  },
+  "files": [
+    "./background.ts",
+    "./content-script.ts"
+  ]
+}

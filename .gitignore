@@ -1,0 +1,4 @@
+background.bundle.js
+content-script.bundle.js
+build/
+node_modules/

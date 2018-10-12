@@ -1,0 +1,23 @@
+{
+  "name": "blockrz",
+  "version": "0.0.1",
+  "description": "Build yourself an adblocker",
+  "author": "Cliqz",
+  "license": "MPL-2.0",
+  "scripts": {
+    "clean": "rm -rfv build *.bundle.js",
+    "lint": "tslint -c tslint.json '*.ts'",
+    "build": "tsc -p tsconfig.json --module ES6 --outDir build",
+    "bundle": "rollup -c rollup.config.js"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.74",
+    "rollup": "^0.66.6",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.3"
+  },
+  "dependencies": {
+    "@cliqz/adblocker": "^0.2.1"
+  }
+}
