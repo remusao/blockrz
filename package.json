@@ -10,7 +10,7 @@
     "build": "tsc -p .",
     "bundle": "rollup -c rollup.config.ts",
     "prebundle": "npm run build",
-    "watch": "concurrently 'tsc -p . --watch' 'rollup -c rollup.config.ts --watch'"
+    "watch": "npm run build && concurrently 'tsc -p . --watch' 'rollup -c rollup.config.ts --watch'"
   },
   "devDependencies": {
     "@types/chrome": "0.0.81",
