@@ -1,134 +1,147 @@
-import * as adblocker from "@cliqz/adblocker";
+import {
+  FiltersEngine,
+  ENGINE_VERSION,
+  makeRequest,
+  updateResponseHeadersWithCSP,
+  Request,
+} from '@cliqz/adblocker';
+import { parse } from 'tldts';
 
 /**
- * Initialize the adblocker using lists of filters and resources. It returns a
- * Promise resolving on the `Engine` that we will use to decide what requests
- * should be blocked or altered.
+ * Initialize the adblocker from pre-built serialized FiltersEngine served by
+ * Cliqz' CDN. This allows the adblocker to initialize very fast since no
+ * expensive parsing is required.
  */
-function loadAdblocker() {
-  const engine = new adblocker.FiltersEngine({
-    enableOptimizations: true,
-    loadCosmeticFilters: true,
-    loadNetworkFilters: true,
-    optimizeAOT: true,
-    version: 1
-  });
+async function loadAdblocker(): Promise<FiltersEngine> {
+  // Fetch `allowed-lists.json` from CDN. It contains information about where
+  // to find pre-built engines as well as lists of filters (e.g.: Easylist,
+  // etc.).
+  const { engines } = await (await fetch(
+    'https://cdn.cliqz.com/adblocker/configs/desktop-ads-trackers/allowed-lists.json',
+  )).json();
 
-  console.log("Fetching resources...");
-  return Promise.all([adblocker.fetchLists(), adblocker.fetchResources()]).then(
-    ([responses, resources]) => {
-      console.log("Initialize adblocker...");
-      engine.onUpdateResource([{ filters: resources, checksum: "" }]);
-      engine.onUpdateFilters(
-        responses.map((filters, i) => ({
-          asset: "" + i,
-          checksum: "",
-          filters
-        })),
-        new Set()
-      );
-
-      return engine;
-    }
+  // Once we have the config, we can get the URL of the pre-built engine
+  // corresponding to our installed version (i.e.: ENGINE_VERSION). This makes
+  // sure that we can download a compabitle one.
+  return FiltersEngine.deserialize(
+    new Uint8Array(
+      await (await fetch(engines[ENGINE_VERSION].url)).arrayBuffer(),
+    ),
   );
 }
 
 /**
- * Because the WebRequest API does not give us access to the URL of the page
- * each request comes from (but we know from which tab they originate), we need
- * to independently keep a mapping from tab ids to source URLs. This information
- * is needed by the adblocker (some filters only apply on specific domains).
+ * Given `details` from webRequest' hooks, create an instance of `Request` as
+ * required by the adblocker. This request will be used in conjunction with the
+ * engine to decide what to do.
  */
-const tabs = new Map();
-
-function resetState(tabId, source) {
-  tabs.set(tabId, { source, count: 0 });
-}
-
-function updateBadgeCount(tabId) {
-  if (tabs.has(tabId)) {
-    const { count } = tabs.get(tabId);
-    chrome.browserAction.setBadgeText({ text: "" + count });
-  }
-}
-
-function incrementBlockedCounter(tabId) {
-  if (tabs.has(tabId)) {
-    const tabStats = tabs.get(tabId);
-    tabStats.count += 1;
-    updateBadgeCount(tabId);
-  }
-}
-
-chrome.tabs.onCreated.addListener(tab => {
-  resetState(tab.id, tab.url);
-  updateBadgeCount(tab.id);
-});
-
-chrome.tabs.onUpdated.addListener((_0, _1, tab) => {
-  if (tabs.has(tab.id)) {
-    const { source } = tabs.get(tab.id);
-    if (source !== tab.url) {
-      resetState(tab.id, tab.url);
-      updateBadgeCount(tab.id);
-    }
-  }
-});
-
-chrome.tabs.onActivated.addListener(({ tabId }) => {
-  updateBadgeCount(tabId);
-});
-
-loadAdblocker().then(engine => {
-  function listener(details) {
-    let source;
-    if (tabs.has(details.tabId)) {
-      source = tabs.get(details.tabId).source;
-    }
-
-    const result = engine.match({
-      cpt: details.type,
-      sourceUrl: source,
-      url: details.url
-    });
-
-    if (result.redirect !== undefined) {
-      incrementBlockedCounter(details.tabId);
-      return { redirectUrl: result.redirect };
-    } else if (result.match === true) {
-      incrementBlockedCounter(details.tabId);
-      return { cancel: true };
-    }
-
-    return {};
-  }
-
-  // Start listening to requests, and allow 'blocking' so that we can cancel
-  // some of them (or redirect).
-  chrome.webRequest.onBeforeRequest.addListener(
-    listener,
+function requestFromDetails({
+  initiator,
+  type,
+  url,
+}:
+  | chrome.webRequest.WebRequestBodyDetails
+  | chrome.webRequest.WebResponseHeadersDetails): Request {
+  return makeRequest(
     {
-      urls: ["*://*/*"]
+      sourceUrl: initiator,
+      type,
+      url,
     },
-    ["blocking"]
+    parse,
+  );
+}
+
+/**
+ * Keep track of number of network requests altered for each tab
+ */
+const counter: Map<number, number> = new Map();
+
+/**
+ * Helper function used to both reset, increment and show the current value of
+ * the blocked requests counter for a given tabId.
+ */
+function updateBlockedCounter(
+  tabId: number,
+  { reset = false, incr = false } = {},
+) {
+  if (reset === true) {
+    counter.set(tabId, 0);
+  }
+
+  if (incr === true) {
+    counter.set(tabId, (counter.get(tabId) || 0) + 1);
+  }
+
+  chrome.browserAction.setBadgeText({
+    text: '' + (counter.get(tabId) || 0),
+  });
+}
+
+// Whenever the active tab changes, then we update the count of blocked request
+chrome.tabs.onActivated.addListener(({ tabId }: chrome.tabs.TabActiveInfo) =>
+  updateBlockedCounter(tabId),
+);
+
+// Wait for adblocker to be initialized before starting listening to requests
+loadAdblocker().then((engine) => {
+  // The `onBeforeRequest` hook allows us to listen to network requests before
+  // they leave the browser. We then have a chance to cancel them or redirect
+  // them to local resources. We use the engine to decide what to do.
+  chrome.webRequest.onBeforeRequest.addListener(
+    (details) => {
+      // Check if request should be either redirected to local resource or blocked
+      const { redirect, match } = engine.match(requestFromDetails(details));
+
+      // Update the counter of altered requests. If the request is a main_frame
+      // the counter is reset to 0. If the request is either blocked or
+      // redirected, then the counter is also incremented.
+      updateBlockedCounter(details.tabId, {
+        incr: Boolean(redirect || match),
+        reset: details.type === 'main_frame',
+      });
+
+      // Create blocking response { cancel, redirectUrl }
+      return {
+        cancel: match === true && redirect === undefined,
+        redirectUrl: redirect,
+      };
+    },
+    {
+      urls: ['<all_urls>'],
+    },
+    ['blocking'],
   );
 
-  // Start listening to messages coming from the content-script
-  chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-    // Extract hostname from sender's URL
-    const url = sender.url;
-    let hostname = "";
-    if (url !== undefined) {
-      hostname = new URL(url).hostname;
-    }
+  // The `onHeadersReceived` listener allows us to intercept 'main_frame'
+  // requests (i.e.: document load) and inject CSP headers when required.
+  chrome.webRequest.onHeadersReceived.addListener(
+    (details) =>
+      updateResponseHeadersWithCSP(
+        details,
+        engine.getCSPDirectives(requestFromDetails(details)),
+      ),
+    { urls: ['<all_urls>'], types: ['main_frame'] },
+    ['blocking', 'responseHeaders'],
+  );
 
+  // Start listening to messages coming from the content-script. Whenever a new
+  // frame is created (either a main document or iframe), it will be requesting
+  // cosmetics to inject in the DOM. We listen for messages and send back
+  // styles and scripts to inject to block/hide ads.
+  chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     // Answer to content-script with a list of nodes
-    if (msg.action === "getCosmeticsForDomain") {
-      sendResponse(engine.getDomainFilters(hostname));
-    } else if (msg.action === "getCosmeticsForNodes") {
-      sendResponse(engine.getCosmeticsFilters(hostname, msg.args[0]));
+    if (msg.action === 'getCosmeticsFilters') {
+      const { hostname, domain } = parse(sender.url || '');
+      sendResponse(
+        engine.getCosmeticsFilters({
+          domain: domain || '',
+          hostname: hostname || '',
+          url: sender.url || '',
+        }),
+      );
     }
   });
 
-  console.log("Ready to roll!");
+  console.log('Ready to roll!');
 });

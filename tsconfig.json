@@ -1,21 +1,24 @@
 {
   "compilerOptions": {
+    "outDir": "build",
     "types": ["chrome"],
-    "target": "ES3",
-    "lib": ["ES6", "DOM"],
+    "module": "ES6",
+    "target": "ES2018",
     "newLine": "lf",
-    "removeComments": true,
     "moduleResolution": "Node",
-    "removeComments": true,
-    "downlevelIteration": true,
-    "importHelpers": true,
+    "alwaysStrict": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitAny": false,
-    "strict": true
+    "strict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "esModuleInterop": true
   },
   "files": [
     "./background.ts",

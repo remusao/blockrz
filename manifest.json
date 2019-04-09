@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "blockrz",
   "version": "0.0.1",
-  "homepage_url": "https://github.com/cliqz-oss/blockrz",
+  "homepage_url": "https://github.com/remusao/blockrz",
   "icons": {
     "48": "cliqz.png"
   },

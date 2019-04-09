@@ -2,9 +2,6 @@ import resolve from 'rollup-plugin-node-resolve';
 
 const plugins = [
   resolve({
-    module: true,
-    jsnext: true,
-    main: false,
     preferBuiltins: false,
     modulesOnly: true,
   }),
@@ -26,5 +23,5 @@ export default [
       format: 'iife',
     },
     plugins,
-  }
+  },
 ];
