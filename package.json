@@ -13,7 +13,7 @@
     "watch": "npm run build && concurrently 'tsc -p . --watch' 'rollup -c rollup.config.ts --watch'"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.81",
+    "@types/chrome": "0.0.83",
     "concurrently": "^4.1.0",
     "rollup": "^1.10.1",
     "rollup-plugin-node-resolve": "^4.2.3",
