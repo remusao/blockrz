@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "@cliqz/adblocker": "^0.9.0",
-    "tldts": "^4.0.5"
+    "tldts": "^4.0.6"
   }
 }
