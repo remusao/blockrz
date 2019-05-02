@@ -65,13 +65,10 @@ function updateBlockedCounter(
   tabId: number,
   { reset = false, incr = false } = {},
 ) {
-  if (reset === true) {
-    counter.set(tabId, 0);
-  }
-
-  if (incr === true) {
-    counter.set(tabId, (counter.get(tabId) || 0) + 1);
-  }
+  counter.set(
+    tabId,
+    (reset === true ? 0 : counter.get(tabId) || 0) + (incr === true ? 1 : 0),
+  );
 
   chrome.browserAction.setBadgeText({
     text: '' + (counter.get(tabId) || 0),
@@ -102,10 +99,13 @@ loadAdblocker().then((engine) => {
       });
 
       // Create blocking response { cancel, redirectUrl }
-      return {
-        cancel: match === true && redirect === undefined,
-        redirectUrl: redirect,
-      };
+      if (redirect !== undefined) {
+        return { redirectUrl: redirect };
+      } else if (match === true) {
+        return { cancel: true };
+      }
+
+      return {};
     },
     {
       urls: ['<all_urls>'],
