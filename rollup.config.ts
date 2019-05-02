@@ -1,11 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 
-const plugins = [
-  resolve({
-    preferBuiltins: false,
-    modulesOnly: true,
-  }),
-];
+const plugins = [resolve()];
 
 export default [
   {
