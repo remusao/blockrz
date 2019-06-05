@@ -1,7 +1,7 @@
 # Blockrz
 
-Build yourself an adblocker in 100 lines of TypeScript! This is
-a minimal WebExtension doing adblocking/antitracking using most
+Build yourself an adblocker in less than 100 lines of TypeScript! This
+is a minimal WebExtension doing adblocking/antitracking using most
 popular block-lists. It is meant as a very thin wrapper around the
 [adblocker](https://github.com/cliqz-oss/adblocker) library which does
 most of the heavy-lifting. The code is also heavily commented and aims
@@ -15,7 +15,7 @@ project and contributions to improve it are more than welcome.
 
 ## FAQ
 
-> Is it really a 100 lines of code?
+> Is it really less than 100 lines of code?
 
 Yes.
 
@@ -25,9 +25,9 @@ $ loc content-script.ts background.ts
 --------------------------------------------------------------------------------
  Language             Files        Lines        Blank      Comment         Code
 --------------------------------------------------------------------------------
- TypeScript               2          175           16           59          100
+ TypeScript               2          161           16           74           71
 --------------------------------------------------------------------------------
- Total                    2          175           16           59          100
+ Total                    2          161           16           74           71
 --------------------------------------------------------------------------------
 ```
 

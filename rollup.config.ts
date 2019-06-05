@@ -8,6 +8,7 @@ export default [
     output: {
       file: 'background.bundle.js',
       format: 'iife',
+      name: 'blockrz',
     },
     plugins,
   },
@@ -16,6 +17,7 @@ export default [
     output: {
       file: 'content-script.bundle.js',
       format: 'iife',
+      name: 'blockrz',
     },
     plugins,
   },

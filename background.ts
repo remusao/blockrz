@@ -1,18 +1,19 @@
-import {
-  FiltersEngine,
-  ENGINE_VERSION,
-  makeRequest,
-  updateResponseHeadersWithCSP,
-  Request,
-} from '@cliqz/adblocker';
-import { parse } from 'tldts';
+/**
+ * `background.ts` is where the adblocker actually lives. It is started once
+ * and keeps the state in memory. From there we can monitor network requests
+ * using the webRequest API and communicate with the `content-script.ts` to
+ * specify which actions should be taken (e.g.: injecting custom stylesheets or
+ * scriptlets in pages).
+ */
+
+import { ENGINE_VERSION, WebExtensionEngine } from '@cliqz/adblocker';
 
 /**
- * Initialize the adblocker from pre-built serialized FiltersEngine served by
- * Cliqz' CDN. This allows the adblocker to initialize very fast since no
+ * Initialize the adblocker from a pre-built serialized FiltersEngine served by
+ * Cliqz' CDN. This allows the adblocker to start extremely fast since no
  * expensive parsing is required.
  */
-async function loadAdblocker(): Promise<FiltersEngine> {
+async function loadAdblocker(): Promise<WebExtensionEngine> {
   // Fetch `allowed-lists.json` from CDN. It contains information about where
   // to find pre-built engines as well as lists of filters (e.g.: Easylist,
   // etc.).
@@ -21,39 +22,18 @@ async function loadAdblocker(): Promise<FiltersEngine> {
   )).json();
 
   // Once we have the config, we can get the URL of the pre-built engine
-  // corresponding to our installed version (i.e.: ENGINE_VERSION). This makes
-  // sure that we can download a compabitle one.
-  return FiltersEngine.deserialize(
+  // corresponding to our installed @cliqz/adblocker version (i.e.:
+  // ENGINE_VERSION). This guarantees that we can download a compabitle one.
+  return WebExtensionEngine.deserialize(
     new Uint8Array(
       await (await fetch(engines[ENGINE_VERSION].url)).arrayBuffer(),
     ),
-  );
+  ) as WebExtensionEngine;
 }
 
 /**
- * Given `details` from webRequest' hooks, create an instance of `Request` as
- * required by the adblocker. This request will be used in conjunction with the
- * engine to decide what to do.
- */
-function requestFromDetails({
-  initiator,
-  type,
-  url,
-}:
-  | chrome.webRequest.WebRequestBodyDetails
-  | chrome.webRequest.WebResponseHeadersDetails): Request {
-  return makeRequest(
-    {
-      sourceUrl: initiator,
-      type,
-      url,
-    },
-    parse,
-  );
-}
-
-/**
- * Keep track of number of network requests altered for each tab
+ * Keep track of number of network requests altered (i.e.: blocked or
+ * redirected) for each open tab.
  */
 const counter: Map<number, number> = new Map();
 
@@ -75,7 +55,7 @@ function updateBlockedCounter(
   });
 }
 
-// Whenever the active tab changes, then we update the count of blocked request
+// Whenever the active tab changes, we update the count of blocked requests
 chrome.tabs.onActivated.addListener(({ tabId }: chrome.tabs.TabActiveInfo) =>
   updateBlockedCounter(tabId),
 );
@@ -88,24 +68,18 @@ loadAdblocker().then((engine) => {
   chrome.webRequest.onBeforeRequest.addListener(
     (details) => {
       // Check if request should be either redirected to local resource or blocked
-      const { redirect, match } = engine.match(requestFromDetails(details));
+      const blockingResponse = engine.onBeforeRequest(details);
 
       // Update the counter of altered requests. If the request is a main_frame
       // the counter is reset to 0. If the request is either blocked or
       // redirected, then the counter is also incremented.
       updateBlockedCounter(details.tabId, {
-        incr: Boolean(redirect || match),
+        incr: Boolean(blockingResponse.cancel || blockingResponse.redirectUrl),
         reset: details.type === 'main_frame',
       });
 
-      // Create blocking response { cancel, redirectUrl }
-      if (redirect !== undefined) {
-        return { redirectUrl: redirect };
-      } else if (match === true) {
-        return { cancel: true };
-      }
-
-      return {};
+      // `blockingResponse` indicates if the request should be allowed, blocked or redirected
+      return blockingResponse;
     },
     {
       urls: ['<all_urls>'],
@@ -114,34 +88,20 @@ loadAdblocker().then((engine) => {
   );
 
   // The `onHeadersReceived` listener allows us to intercept 'main_frame'
-  // requests (i.e.: document load) and inject CSP headers when required.
+  // requests (i.e.: main document load) and inject CSP headers when required.
   chrome.webRequest.onHeadersReceived.addListener(
-    (details) =>
-      updateResponseHeadersWithCSP(
-        details,
-        engine.getCSPDirectives(requestFromDetails(details)),
-      ),
+    (details) => engine.onHeadersReceived(details),
     { urls: ['<all_urls>'], types: ['main_frame'] },
     ['blocking', 'responseHeaders'],
   );
 
-  // Start listening to messages coming from the content-script. Whenever a new
+  // Start listening to messages coming from the content script. Whenever a new
   // frame is created (either a main document or iframe), it will be requesting
   // cosmetics to inject in the DOM. We listen for messages and send back
   // styles and scripts to inject to block/hide ads.
-  chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-    // Answer to content-script with a list of nodes
-    if (msg.action === 'getCosmeticsFilters') {
-      const { hostname, domain } = parse(sender.url || '');
-      sendResponse(
-        engine.getCosmeticsFilters({
-          domain: domain || '',
-          hostname: hostname || '',
-          url: sender.url || '',
-        }),
-      );
-    }
-  });
+  chrome.runtime.onMessage.addListener((...args) =>
+    engine.onRuntimeMessage(...args),
+  );
 
   console.log('Ready to roll!');
 });
