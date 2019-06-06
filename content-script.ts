@@ -11,11 +11,14 @@
  * if a new ad is being loaded).
  */
 
+// We could be importing from `@cliqz/adblocker` but we would risk getting
+// un-desired code in the bundle. To make sure content-script is as lightweight
+// as possible, we cherry-pick only what we really need.
 import {
   IBackgroundCallback,
   IMessageFromBackground,
-  injectCosmetics,
-} from '@cliqz/adblocker';
+} from '@cliqz/adblocker/src/content/communication';
+import injectCosmetics from '@cliqz/adblocker/src/webextension/content';
 
 /**
  * Because all the filters and matching logic lives in the background of the
@@ -39,10 +42,7 @@ const getCosmeticsFilters = (
 ): Promise<IMessageFromBackground> => {
   return new Promise((resolve) => {
     chrome.runtime.sendMessage(
-      {
-        action: 'getCosmeticsFilters',
-        ...payload,
-      },
+      Object.assign({ action: 'getCosmeticsFilters' }, payload),
       resolve,
     );
   });

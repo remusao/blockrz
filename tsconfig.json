@@ -2,13 +2,11 @@
   "compilerOptions": {
     "outDir": "build",
     "lib": ["ES6", "DOM"],
-    "module": "ES6",
-    "target": "ES3",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "importHelpers": true,
-    "inlineSourceMap": true,
     "strict": true
   },
   "files": [
