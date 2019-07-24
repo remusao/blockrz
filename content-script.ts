@@ -11,48 +11,26 @@
  * if a new ad is being loaded).
  */
 
-// We could be importing from `@cliqz/adblocker` but we would risk getting
-// un-desired code in the bundle. To make sure content-script is as lightweight
-// as possible, we cherry-pick only what we really need.
 import {
   IBackgroundCallback,
   IMessageFromBackground,
-} from '@cliqz/adblocker/src/content/communication';
-import injectCosmetics from '@cliqz/adblocker/src/webextension/content';
+  injectCosmetics,
+} from '@cliqz/adblocker-webextension-cosmetics';
 
 /**
- * Because all the filters and matching logic lives in the background of the
- * extension, the content script needs a way to request relevant cosmetic
- * filters for each frame. This communication can be handled in several ways
- * (e.g.: `connect` or `sendMessage`). Here we will make use of `sendMessage`
- * for one-off communications.
- *
- * `getCosmeticsFilters` wraps the logic of communicating with the background
- * and will be used to request cosmetics filters for the current frame. Via
- * this mechanism, the content script can also communicate information about
- * the structure of the page (i.e.: the DOM) to the background, to fine-tune
- * the blocking.
+ * All the filters and matching logic lives in the background of the extension,
+ * the content script needs a way to request relevant cosmetic filters for each
+ * frame. This communication can be handled in several ways (e.g.: `connect` or
+ * `sendMessage`). By default, `sendMessage` is used.
  *
  * The background should listen to these messages and answer back with lists of
  * filters to be injected in the page, as well as scriplets (small
  * self-contained programs) which should be injected.
- */
-const getCosmeticsFilters = (
-  payload: IBackgroundCallback,
-): Promise<IMessageFromBackground> => {
-  return new Promise((resolve) => {
-    chrome.runtime.sendMessage(
-      Object.assign({ action: 'getCosmeticsFilters' }, payload),
-      resolve,
-    );
-  });
-};
-
-/**
+ *
  * `injectCosmetics` is in charge of all ad-blocking logic on the content-script
  * side. It handles the following:
- * - Request information from background
- * - Monitor DOM changes and inform background
- * - Inject scriplets returned by background into the page
+ * - Requests information from background
+ * - Monitor DOM changes and informs background
+ * - Injects scriplets returned by background into frames
  */
-injectCosmetics(window, getCosmeticsFilters, true /* observe DOM mutations */);
+injectCosmetics(window, true /* observe DOM mutations */);
