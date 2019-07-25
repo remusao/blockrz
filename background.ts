@@ -6,14 +6,14 @@
  * scriptlets in pages).
  */
 
-import { ENGINE_VERSION, WebExtensionEngine } from '@cliqz/adblocker';
+import { ENGINE_VERSION, WebExtensionBlocker } from '@cliqz/adblocker-webextension';
 
 /**
  * Initialize the adblocker from a pre-built serialized FiltersEngine served by
  * Cliqz' CDN. This allows the adblocker to start extremely fast since no
  * expensive parsing is required.
  */
-async function loadAdblocker(): Promise<WebExtensionEngine> {
+async function loadAdblocker(): Promise<WebExtensionBlocker> {
   // Fetch `allowed-lists.json` from CDN. It contains information about where
   // to find pre-built engines as well as lists of filters (e.g.: Easylist,
   // etc.).
@@ -24,11 +24,11 @@ async function loadAdblocker(): Promise<WebExtensionEngine> {
   // Once we have the config, we can get the URL of the pre-built engine
   // corresponding to our installed @cliqz/adblocker version (i.e.:
   // ENGINE_VERSION). This guarantees that we can download a compabitle one.
-  return WebExtensionEngine.deserialize(
+  return WebExtensionBlocker.deserialize(
     new Uint8Array(
       await (await fetch(engines[ENGINE_VERSION].url)).arrayBuffer(),
     ),
-  ) as WebExtensionEngine;
+  ) as WebExtensionBlocker;
 }
 
 /**
