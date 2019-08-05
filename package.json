@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.10.0",
-    "@types/chrome": "0.0.86",
+    "@types/chrome": "0.0.87",
     "rollup": "^1.18.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript": "^1.0.1",
