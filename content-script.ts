@@ -12,8 +12,6 @@
  */
 
 import {
-  IBackgroundCallback,
-  IMessageFromBackground,
   injectCosmetics,
 } from '@cliqz/adblocker-webextension-cosmetics';
 
