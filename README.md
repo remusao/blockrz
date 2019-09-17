@@ -35,9 +35,10 @@ $ loc content-script.ts background.ts
 
 Yes it is small, but it leverages
 [@cliqz/adblocker](https://github.com/cliqz-oss/adblocker) to do the
-heavy-lifting. This means that the extension is doing as much as any
-other content-blocker (if you make abstraction of the UI, of course,
-which only consists in a counter of blocked requests).
+heavy-lifting. This means that the extension is doing as much as any other
+content-blocker (if you make abstraction of the UI, of course, which only
+consists in a counter of blocked requests). At the time of this writing, this
+is still the fastest and most memory efficient adblocker around.
 
 > Which filters lists is it using?
 
