@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "@cliqz/adblocker-webextension": "^1.2.0",
-    "@cliqz/adblocker-webextension-cosmetics": "^1.1.0"
+    "@cliqz/adblocker-webextension-cosmetics": "^1.2.0"
   }
 }
