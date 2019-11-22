@@ -12,7 +12,7 @@
     "watch": "rollup --config rollup.config.ts"
   },
   "devDependencies": {
-    "@ampproject/rollup-plugin-closure-compiler": "^0.12.2",
+    "@ampproject/rollup-plugin-closure-compiler": "^0.13.0",
     "@types/chrome": "0.0.91",
     "rollup": "^1.27.3",
     "rollup-plugin-node-resolve": "^5.2.0",
