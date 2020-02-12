@@ -6,6 +6,7 @@
  * scriptlets in pages).
  */
 
+import { browser } from 'webextension-polyfill-ts';
 import { BlockingResponse, Request, WebExtensionBlocker } from '@cliqz/adblocker-webextension';
 
 /**
@@ -20,7 +21,7 @@ const counter: Map<number, number> = new Map();
 function updateBlockedCounter(tabId: number, { reset = false, incr = false } = {}) {
   counter.set(tabId, (reset === true ? 0 : counter.get(tabId) || 0) + (incr === true ? 1 : 0));
 
-  chrome.browserAction.setBadgeText({
+  browser.browserAction.setBadgeText({
     text: '' + (counter.get(tabId) || 0),
   });
 }
@@ -33,12 +34,12 @@ function incrementBlockedCounter(request: Request, blockingResponse: BlockingRes
 }
 
 // Whenever the active tab changes, then we update the count of blocked request
-chrome.tabs.onActivated.addListener(({ tabId }: chrome.tabs.TabActiveInfo) =>
+browser.tabs.onActivated.addListener(({ tabId }) =>
   updateBlockedCounter(tabId),
 );
 
 // Reset counter if tab is reloaded
-chrome.tabs.onUpdated.addListener((tabId, { status }) => {
+browser.tabs.onUpdated.addListener((tabId, { status }) => {
   if (status === 'loading') {
     updateBlockedCounter(tabId, {
       incr: false,
@@ -48,13 +49,8 @@ chrome.tabs.onUpdated.addListener((tabId, { status }) => {
 });
 
 WebExtensionBlocker.fromPrebuiltAdsAndTracking().then((blocker: WebExtensionBlocker) => {
-  blocker.enableBlockingInBrowser();
+  blocker.enableBlockingInBrowser(browser);
   blocker.on('request-blocked', incrementBlockedCounter);
   blocker.on('request-redirected', incrementBlockedCounter);
-
-  blocker.on('csp-injected', (directives, request: Request) => {
-    console.log('csp', directives, request.url);
-  });
-
   console.log('Ready to roll!');
 });

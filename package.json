@@ -6,22 +6,24 @@
   "license": "MPL-2.0",
   "scripts": {
     "clean": "rm -rfv build *.bundle.js",
-    "lint": "tslint --config tslint.json '*.ts' && tsc --noEmit --project .",
+    "lint": "tslint --config tslint.json '*.ts'",
     "bundle": "rollup --config rollup.config.ts",
-    "prebundle": "npm run lint",
-    "watch": "rollup --config rollup.config.ts"
+    "watch": "rollup --config rollup.config.ts --watch",
+    "start:firefox": "npx web-ext run --source-dir='.'",
+    "start:chromium": "npx web-ext run --source-dir='.' --target chromium"
   },
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.21.0",
-    "@types/chrome": "0.0.95",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-typescript": "^3.0.0",
     "rollup": "^1.31.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript": "^1.0.1",
     "tslint": "^6.0.0",
     "typescript": "^3.7.5"
   },
   "dependencies": {
     "@cliqz/adblocker-webextension": "^1.7.3",
-    "@cliqz/adblocker-webextension-cosmetics": "^1.7.3"
+    "@cliqz/adblocker-webextension-cosmetics": "^1.7.3",
+    "webextension-polyfill-ts": "^0.12.0"
   }
 }
