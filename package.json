@@ -21,7 +21,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@cliqz/adblocker-webextension": "^1.7.0",
+    "@cliqz/adblocker-webextension": "^1.7.3",
     "@cliqz/adblocker-webextension-cosmetics": "^1.7.0"
   }
 }
