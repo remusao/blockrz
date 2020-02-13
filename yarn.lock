@@ -39,10 +39,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.7.3":
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.7.3.tgz#de6ec605350c0452a627878269f640ba3905f1a0"
-  integrity sha512-ZeiAm087WffQ9ro0NQpVDJ2S5u93xvNDS0yMotWkSLGFm8+g7grwZgY9tz+S31xJkncvAUvE6BwF0ANoGiDTCw==
+"@cliqz/adblocker-content@^1.7.3", "@cliqz/adblocker-content@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.8.2.tgz#a1c5469fe8c90aaf06715d52486d47485bdeb966"
+  integrity sha512-e0qMQdqkb8ACIPrA5pY6sgipAvN3MGbNUk7M4Q+pStDUCj4WVlBBe7BFU5i9yNUIGVNHuhOSq2COwgMUPScYkw==
 
 "@cliqz/adblocker-webextension-cosmetics@^1.7.3":
   version "1.7.3"
@@ -51,27 +51,25 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.7.3"
 
-"@cliqz/adblocker-webextension@^1.7.3":
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.7.3.tgz#c1cc4c0e105c2c83102e938c1bdfe25408cad764"
-  integrity sha512-gxhenOgKW93Lh7tf6sSk+Wxjgdz8qxXcX/nUs8cME/ErVzQNYpxmvwt3O8tOMDz8QZSbXs+A1OwTP9m/uDPhQw==
+"@cliqz/adblocker-webextension@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.8.2.tgz#a649b4375f8cd679138e5a7b2ee4f9c4ae0e7f50"
+  integrity sha512-bQoIw6H+sYv84LN2bJul4O6ntXYYMClb419JidymXRRa6ReAlZqwyEqUxm/Vqq9b8hkFyj2VjBY5PcFMGbhsIA==
   dependencies:
-    "@cliqz/adblocker" "^1.7.3"
-    "@cliqz/adblocker-content" "^1.7.3"
+    "@cliqz/adblocker" "^1.8.2"
+    "@cliqz/adblocker-content" "^1.8.2"
     tldts-experimental "^5.6.3"
-    tslib "^1.10.0"
     webextension-polyfill-ts "^0.12.0"
 
-"@cliqz/adblocker@^1.7.3":
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.7.3.tgz#eae6a2f269cf60717e9d04f2aef3f41059af33f6"
-  integrity sha512-+1fMStwPfFC4hBNppPPRPgeiJmwko4a6vFTzIjbKWUTUMOgsVJhxZiDylk5KtRUEidXaeL4n81r/eQkkvGhM7g==
+"@cliqz/adblocker@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.8.2.tgz#0d46c8794387440f89d9dc79f3cf34fbe607ed9c"
+  integrity sha512-kriqDXXuObWEtZKM5GLD+Bz8rX0rC9KNY5YEh4Upwi+CrwZh5N9b6jTHIpTeTGg9gr4hTmR38Z9XvtfKz8SaMA==
   dependencies:
     "@remusao/smaz" "^1.7.1"
-    "@types/chrome" "^0.0.94"
+    "@types/chrome" "^0.0.95"
     "@types/firefox-webext-browser" "^70.0.1"
     tldts-experimental "^5.6.3"
-    tslib "^1.10.0"
 
 "@jridgewell/resolve-uri@1.0.0":
   version "1.0.0"
@@ -145,10 +143,10 @@
   dependencies:
     estree-walker "^1.0.1"
 
-"@types/chrome@^0.0.94":
-  version "0.0.94"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.94.tgz#6097e605837ed18227517df0f88e882a736c24da"
-  integrity sha512-vbJVHmXTfdFQcA4eJpBoTWS15PhW8D51WxPZAHFSvx04MFFBtNmZnvBmMhpgSQ5pIhQW+NYTMTtD85p947JKlg==
+"@types/chrome@^0.0.95":
+  version "0.0.95"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.95.tgz#fdb234a7693d60d78bbb5951e97f96d15d3247a3"
+  integrity sha512-P6BOI1R8P7OOV0neudBBFwQI52rRnRJ4cfKbDhHentiwxJ8bU76SkkV0FvMRmZjM5Sag/RbwawnHJfiMSQ4Vng==
   dependencies:
     "@types/filesystem" "*"
 
