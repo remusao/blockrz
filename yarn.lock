@@ -39,10 +39,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.8.2":
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.8.2.tgz#a1c5469fe8c90aaf06715d52486d47485bdeb966"
-  integrity sha512-e0qMQdqkb8ACIPrA5pY6sgipAvN3MGbNUk7M4Q+pStDUCj4WVlBBe7BFU5i9yNUIGVNHuhOSq2COwgMUPScYkw==
+"@cliqz/adblocker-content@^1.8.2", "@cliqz/adblocker-content@^1.8.6":
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.8.6.tgz#879714ecc8177d1bc3873d981e0b8f5c6714c430"
+  integrity sha512-8bcpvMtaWx0UZvQU2S4Waw+EQw3zUrziBvhA1xgHK8bdX5VTN3ELALXJqQMGUoPNYTq9Z3M0cbqnaX6Bzh1Osg==
 
 "@cliqz/adblocker-webextension-cosmetics@^1.8.2":
   version "1.8.2"
@@ -51,20 +51,20 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.8.2"
 
-"@cliqz/adblocker-webextension@^1.8.2":
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.8.2.tgz#a649b4375f8cd679138e5a7b2ee4f9c4ae0e7f50"
-  integrity sha512-bQoIw6H+sYv84LN2bJul4O6ntXYYMClb419JidymXRRa6ReAlZqwyEqUxm/Vqq9b8hkFyj2VjBY5PcFMGbhsIA==
+"@cliqz/adblocker-webextension@^1.8.6":
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.8.6.tgz#22736df89fff36d3d88acd9650468a8ae3c8a08c"
+  integrity sha512-C+y1cWFWg9bC2Jda8NYP/b6xETcrHHJHznDBd9dizObzQmuJ79mpg+S9+2E2rSS2NTBD4vb/g3KoKd1CXTdIjQ==
   dependencies:
-    "@cliqz/adblocker" "^1.8.2"
-    "@cliqz/adblocker-content" "^1.8.2"
+    "@cliqz/adblocker" "^1.8.6"
+    "@cliqz/adblocker-content" "^1.8.6"
     tldts-experimental "^5.6.3"
     webextension-polyfill-ts "^0.12.0"
 
-"@cliqz/adblocker@^1.8.2":
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.8.2.tgz#0d46c8794387440f89d9dc79f3cf34fbe607ed9c"
-  integrity sha512-kriqDXXuObWEtZKM5GLD+Bz8rX0rC9KNY5YEh4Upwi+CrwZh5N9b6jTHIpTeTGg9gr4hTmR38Z9XvtfKz8SaMA==
+"@cliqz/adblocker@^1.8.6":
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.8.6.tgz#daf2efc47c9bfcad3fbe9582264fb21e28d8e294"
+  integrity sha512-L/qqdpt62ZVnZlQuWmu3EzGKFl7GLNUUT2RXuZxjN0r5NYybc8Rcv0cLKvsLMzF9Jx68sfY9ujrX6cEj3E9fHg==
   dependencies:
     "@remusao/smaz" "^1.7.1"
     "@types/chrome" "^0.0.95"
