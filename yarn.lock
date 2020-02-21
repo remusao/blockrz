@@ -39,7 +39,7 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.8.6", "@cliqz/adblocker-content@^1.9.0":
+"@cliqz/adblocker-content@^1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.9.0.tgz#7dc50136a23ada9a4bd473144de2270726b07904"
   integrity sha512-GpvQquEKyDQ5+lzz4Lq6Zbjv3TtZzQ3Jr7t0ds0Oolm5csZ34yt1OLquOSM+9cJIKt4Q580ma3uRzYs81Z7PVw==
@@ -51,23 +51,23 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.9.0"
 
-"@cliqz/adblocker-webextension@^1.8.6":
-  version "1.8.6"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.8.6.tgz#22736df89fff36d3d88acd9650468a8ae3c8a08c"
-  integrity sha512-C+y1cWFWg9bC2Jda8NYP/b6xETcrHHJHznDBd9dizObzQmuJ79mpg+S9+2E2rSS2NTBD4vb/g3KoKd1CXTdIjQ==
+"@cliqz/adblocker-webextension@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.9.0.tgz#48f6505359eaacf0e7fa779a81590425926d46c0"
+  integrity sha512-L05gNEasRIgQya1BYjQo92OgwXq5UKjkgqgkwQ8uB1xI8cwtHSrIpUYsVV05pZfgbkuSrlxUu0iKcE2lf8YDFQ==
   dependencies:
-    "@cliqz/adblocker" "^1.8.6"
-    "@cliqz/adblocker-content" "^1.8.6"
+    "@cliqz/adblocker" "^1.9.0"
+    "@cliqz/adblocker-content" "^1.9.0"
     tldts-experimental "^5.6.3"
     webextension-polyfill-ts "^0.12.0"
 
-"@cliqz/adblocker@^1.8.6":
-  version "1.8.6"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.8.6.tgz#daf2efc47c9bfcad3fbe9582264fb21e28d8e294"
-  integrity sha512-L/qqdpt62ZVnZlQuWmu3EzGKFl7GLNUUT2RXuZxjN0r5NYybc8Rcv0cLKvsLMzF9Jx68sfY9ujrX6cEj3E9fHg==
+"@cliqz/adblocker@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.9.0.tgz#5b97a85407d3a47db021b43a57affce67439f8a2"
+  integrity sha512-0orjACY2qKdmePgDD426HQ1X4U3aljwFaAWm8GNnCcEez20Pq8iRkqUd0maFBpkVo5dBWt7fdwcxorfO38f0IA==
   dependencies:
     "@remusao/smaz" "^1.7.1"
-    "@types/chrome" "^0.0.95"
+    "@types/chrome" "^0.0.96"
     "@types/firefox-webext-browser" "^70.0.1"
     tldts-experimental "^5.6.3"
 
@@ -143,10 +143,10 @@
   dependencies:
     estree-walker "^1.0.1"
 
-"@types/chrome@^0.0.95":
-  version "0.0.95"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.95.tgz#fdb234a7693d60d78bbb5951e97f96d15d3247a3"
-  integrity sha512-P6BOI1R8P7OOV0neudBBFwQI52rRnRJ4cfKbDhHentiwxJ8bU76SkkV0FvMRmZjM5Sag/RbwawnHJfiMSQ4Vng==
+"@types/chrome@^0.0.96":
+  version "0.0.96"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.96.tgz#afdd11564bffcb1623ea83a85ccff25f5a99b073"
+  integrity sha512-0b5H9CoFnBe1yGrC/wVS+zYFR8M8iaIPcR11BeHJvqDiP344DW6F/5sEBIGFyKl++CWVcvhx+7JQVUIjGWSN5w==
   dependencies:
     "@types/filesystem" "*"
 
