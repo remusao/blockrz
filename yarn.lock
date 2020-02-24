@@ -39,7 +39,7 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.9.0", "@cliqz/adblocker-content@^1.9.1":
+"@cliqz/adblocker-content@^1.9.1":
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.9.1.tgz#ccbd1d9d8c7603ea10b2840ffa456bf03c2c25d6"
   integrity sha512-FDjDxa+rFqkF7oxagn1m0khino8PoLQL8mMw5kVcH9QArCaECsCq6NfA/7xzB09Y7FHFLsE0+0lg8LY2qYVJ1g==
@@ -51,20 +51,20 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.9.1"
 
-"@cliqz/adblocker-webextension@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.9.0.tgz#48f6505359eaacf0e7fa779a81590425926d46c0"
-  integrity sha512-L05gNEasRIgQya1BYjQo92OgwXq5UKjkgqgkwQ8uB1xI8cwtHSrIpUYsVV05pZfgbkuSrlxUu0iKcE2lf8YDFQ==
+"@cliqz/adblocker-webextension@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.9.1.tgz#ce0d9f2876ba2d6f064b1df2c8d1ae604e6e862c"
+  integrity sha512-qY1uZkguAbgzwOIhzn6QEhqeGfH93PKIrXzInCOZIlmNCEWfEh1LsLbB/hieCRUPyOF8ZKBQs13sPHXM6Xl6rQ==
   dependencies:
-    "@cliqz/adblocker" "^1.9.0"
-    "@cliqz/adblocker-content" "^1.9.0"
+    "@cliqz/adblocker" "^1.9.1"
+    "@cliqz/adblocker-content" "^1.9.1"
     tldts-experimental "^5.6.3"
     webextension-polyfill-ts "^0.12.0"
 
-"@cliqz/adblocker@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.9.0.tgz#5b97a85407d3a47db021b43a57affce67439f8a2"
-  integrity sha512-0orjACY2qKdmePgDD426HQ1X4U3aljwFaAWm8GNnCcEez20Pq8iRkqUd0maFBpkVo5dBWt7fdwcxorfO38f0IA==
+"@cliqz/adblocker@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.9.1.tgz#b755e263b459a1158ecebeb82d60e26f4c6bca80"
+  integrity sha512-ADb8tZml20Nozt7AJNvHcjI5Q8NsbPuidV1HLiUvTSIvVF0968qvJIpOhHOlEG++qC5K+bMXNkCiGamttGyD7A==
   dependencies:
     "@remusao/smaz" "^1.7.1"
     "@types/chrome" "^0.0.96"
