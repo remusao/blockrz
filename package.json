@@ -17,7 +17,7 @@
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-typescript": "^3.0.0",
-    "rollup": "^1.31.1",
+    "rollup": "^1.32.0",
     "tslint": "^6.0.0",
     "typescript": "^3.8.2"
   },
