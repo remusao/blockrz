@@ -39,17 +39,17 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.9.2":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.9.2.tgz#64d15cb2accb2445d5256b469f6fa31c1207b00c"
-  integrity sha512-18NHuhJVAnRfBLB5X2RFXdOWcrdODl/dTE1DDTRcFioM2cCvNR7oeZlaZ7oYtp5lpqmFBySzuhGy394IEXk4YA==
+"@cliqz/adblocker-content@^1.10.1", "@cliqz/adblocker-content@^1.9.2":
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.10.1.tgz#8fafffa009a0e77eaba4fd4dee7a5c95d12485c1"
+  integrity sha512-JgMhsEtwtj/sJ3odfE3C8Niutm9hLVMz4luTVeNF+D1YFEFIA69SorlgpkAkqWgnnv0qke2bBIQgaGRc+xjlUw==
 
-"@cliqz/adblocker-webextension-cosmetics@^1.9.2":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension-cosmetics/-/adblocker-webextension-cosmetics-1.9.2.tgz#eb8d1aa5e0f19793de2900351d77fd8fa71ba6b3"
-  integrity sha512-rtX0GENrW/2TbmdY98F4U0NOnn/UH5neaOY4xnQkcYoJNXpWt5zgx7kAiZtP7uoDneINSfDyQsO4ZqTwLQL/Ow==
+"@cliqz/adblocker-webextension-cosmetics@^1.10.1":
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension-cosmetics/-/adblocker-webextension-cosmetics-1.10.1.tgz#d9e4e3ea25d1735d051045981557f5104d529a45"
+  integrity sha512-gAF5capM6eHwfsA71vqUzbK/ySLQ1txy6kNsooj69sjPvHxQTGQ3znfOeaDXpVJNxzWUMf+wlFAu1BX9bLy6eQ==
   dependencies:
-    "@cliqz/adblocker-content" "^1.9.2"
+    "@cliqz/adblocker-content" "^1.10.1"
 
 "@cliqz/adblocker-webextension@^1.9.2":
   version "1.9.2"
