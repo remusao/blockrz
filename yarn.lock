@@ -39,7 +39,7 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.13.0", "@cliqz/adblocker-content@^1.9.2":
+"@cliqz/adblocker-content@^1.13.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.13.0.tgz#0301fd77b8b821893d53d0c6d02d3b26e028c4f7"
   integrity sha512-2kStPzaON6qLe+/fY1mKnrRcmgnt2ZNJM6HJW+pcINquk6uEQ60R4kObbOJdVqtoKtGEH4OjyiOUUej2xxTxrg==
@@ -51,23 +51,23 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.13.0"
 
-"@cliqz/adblocker-webextension@^1.9.2":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.9.2.tgz#53f5d9071b6480ce001835e920384ffd0e4e8fbf"
-  integrity sha512-MnWRAGyjrQ1s3saa83C1ot9cMCrC7PW4X4bwc2yguLO8rKVY2FEYrbEduRuHuzmzSwMy025qK7sflP6CGOKEaQ==
+"@cliqz/adblocker-webextension@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.13.0.tgz#96019a618c8c83b78b5586815ccb8ebd09085209"
+  integrity sha512-FbBtutd+vwb+EpvnZdPnlexznW4e45DxN2DATc/pkDtlLxaqV0qainK5o/KS+v/yrCGmZ7TN0zSLxl7x0W3TZQ==
   dependencies:
-    "@cliqz/adblocker" "^1.9.2"
-    "@cliqz/adblocker-content" "^1.9.2"
+    "@cliqz/adblocker" "^1.13.0"
+    "@cliqz/adblocker-content" "^1.13.0"
     tldts-experimental "^5.6.3"
-    webextension-polyfill-ts "^0.12.0"
+    webextension-polyfill-ts "^0.14.0"
 
-"@cliqz/adblocker@^1.9.2":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.9.2.tgz#7038b7d08eb610956b91f645be733b602c4d277d"
-  integrity sha512-B3JE4F6LQ8qDAgWlN3a2NW1MgBjvHCCzX1aCglm/k20iAa1Yw89Mcbu/LJL4FqgUe4jaYUwb+Siya1ZK+Z7Kfg==
+"@cliqz/adblocker@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.13.0.tgz#e3b77c9226dc5906d100a7e60f5e4f1636dbe574"
+  integrity sha512-6QQmUqsHBUOtPT7xRkSAojiT/mrLYagfmdMudlOVskF/+Rm78zLJBg0HxRGl4rCZsxTaFVl8Wy87dz32Xa4mTA==
   dependencies:
     "@remusao/smaz" "^1.7.1"
-    "@types/chrome" "^0.0.97"
+    "@types/chrome" "^0.0.103"
     "@types/firefox-webext-browser" "^70.0.1"
     tldts-experimental "^5.6.3"
 
@@ -138,12 +138,13 @@
   dependencies:
     estree-walker "^1.0.1"
 
-"@types/chrome@^0.0.97":
-  version "0.0.97"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.97.tgz#aa0e5965a0662906cd57c632e34fe6d1462963f0"
-  integrity sha512-buJsiNcs2X/Pb22ZNShMOUuDgV6o5AH6U9bGpc0diTZfWYOVOzcA2LKfBL+Sbxp4K4VvT0rA3zsEcui24vQofg==
+"@types/chrome@^0.0.103":
+  version "0.0.103"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.103.tgz#604f3d94ab4465cc8cde302c4916f4955eb7e8b6"
+  integrity sha512-s8So1IG1fIu2dg2MRV3k6W5OjlVaJriNXIxIWDHi+Rdz5dLeuzPKcWzkVlcaVL4gONfn44JKC0RhW+P0UohLfg==
   dependencies:
     "@types/filesystem" "*"
+    "@types/har-format" "*"
 
 "@types/estree@*":
   version "0.0.42"
@@ -171,6 +172,11 @@
   version "70.0.1"
   resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-70.0.1.tgz#53a3915bfbe25e2c5ec439dbdbe6e303610012bb"
   integrity sha512-hjHsTR9vKs+yikWbNS/s7TVCx15M/MEn+VYx47wtT/W/wORsIZDD75gfUfP7lkzi+IxRvKMQBB/5/wMFlfgvgQ==
+
+"@types/har-format@*":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@types/har-format/-/har-format-1.2.4.tgz#3275842095abb60d14b47fa798cc9ff708dab6d4"
+  integrity sha512-iUxzm1meBm3stxUMzRqgOVHjj4Kgpgu5w9fm4X7kPRfSgVRzythsucEN7/jtOo8SQzm+HfcxWWzJS0mJDH/3DQ==
 
 "@types/node@*":
   version "13.7.1"
@@ -639,6 +645,13 @@ webextension-polyfill-ts@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/webextension-polyfill-ts/-/webextension-polyfill-ts-0.12.0.tgz#4b16c6b2bc21b267b0770af9e29fb5eea0c690de"
   integrity sha512-U9gL0gm49BLXkbcY3VGb7eN2LMtxYMIqgPAENDpV4wxXmsrhx7YK2ETYj1as+hMvrJyrxO/4tmfsAUkdFJqYIw==
+  dependencies:
+    webextension-polyfill "^0.6.0"
+
+webextension-polyfill-ts@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/webextension-polyfill-ts/-/webextension-polyfill-ts-0.14.0.tgz#37c56852613f9b9fa4992ba673b615d8fcaf1e24"
+  integrity sha512-eBfjCgF8IvxKCphygM2MxQi1ixtxrzxz3k3cLQ2er2KUDJqWc8qkR5YjOH62PdPI9slJHYV4kHuQN3bG9/sQqw==
   dependencies:
     webextension-polyfill "^0.6.0"
 
