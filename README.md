@@ -10,7 +10,7 @@ project and contributions to improve it are more than welcome.
 
 ## Building
 
-1. Build the extension: `npm ci && npm run bundle`
+1. Build the extension: `yarn install --frozen-lock && yarn bundle`
 2. Load it in Firefox or Chromium by using the "Load unpacked extension" feature
 
 ## FAQ
@@ -50,7 +50,6 @@ time of this writing are:
 * [EasyList](https://easylist.to/easylist/easylist.txt)
 * [EasyPrivacy](https://easylist.to/easylist/easyprivacy.txt)
 * [Peter Lowe’s Ad and tracking server list](https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=0&mimetype=plaintext)
-* [Adblock Warning Removal List](https://easylist-downloads.adblockplus.org/antiadblockfilters.txt)
 * [uBlock filters](https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt)
 * [uBlock filters - Privacy](https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt)
 * [uBlock filters - Resource abuse](https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt)

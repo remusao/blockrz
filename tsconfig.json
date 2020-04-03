@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "build",
-    "lib": ["ES6", "DOM"],
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "downlevelIteration": true,
-    "esModuleInterop": true,
-    "importHelpers": true,
-    "strict": true
+    "sourceMap": true,
+    "target": "es2017",
+    "moduleResolution": "node",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
   },
   "files": [
     "./background.ts",
