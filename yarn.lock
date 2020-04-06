@@ -23,7 +23,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.13.0", "@cliqz/adblocker-content@^1.13.1":
+"@cliqz/adblocker-content@^1.13.1":
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.13.1.tgz#2ca6aefda1668051326e9260f5b6c66d312fe6aa"
   integrity sha512-2qHbhH3K+QehBAmuspV2pUr0avXHRh4/8RAeiujlHQTK0pnFIvUFgF4ZVDvUpmRNlxG1KFA2lcgkJoGZz5zH+A==
@@ -35,20 +35,20 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.13.1"
 
-"@cliqz/adblocker-webextension@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.13.0.tgz#96019a618c8c83b78b5586815ccb8ebd09085209"
-  integrity sha512-FbBtutd+vwb+EpvnZdPnlexznW4e45DxN2DATc/pkDtlLxaqV0qainK5o/KS+v/yrCGmZ7TN0zSLxl7x0W3TZQ==
+"@cliqz/adblocker-webextension@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.13.1.tgz#090d2e08dea4485410c4f01b1960ee861c546442"
+  integrity sha512-Ojngga8CnY+czaS/kY7vw/VNRCOLIX2FRYXTBi6REi3QP5YjG8fpS/IlOSPd1e52+g5qBqiq/fZH2Mew/gIbgQ==
   dependencies:
-    "@cliqz/adblocker" "^1.13.0"
-    "@cliqz/adblocker-content" "^1.13.0"
+    "@cliqz/adblocker" "^1.13.1"
+    "@cliqz/adblocker-content" "^1.13.1"
     tldts-experimental "^5.6.3"
     webextension-polyfill-ts "^0.14.0"
 
-"@cliqz/adblocker@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.13.0.tgz#e3b77c9226dc5906d100a7e60f5e4f1636dbe574"
-  integrity sha512-6QQmUqsHBUOtPT7xRkSAojiT/mrLYagfmdMudlOVskF/+Rm78zLJBg0HxRGl4rCZsxTaFVl8Wy87dz32Xa4mTA==
+"@cliqz/adblocker@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.13.1.tgz#0912012728a743c99232992572dda76cd127833a"
+  integrity sha512-RvM58CtqS2oNss0K7gB67iu/bd5gu7BXYOb6kPriMs5qKAJyItM9CD+7GRS7FA0x7M0O4rONf6rzfF32IO0+YA==
   dependencies:
     "@remusao/smaz" "^1.7.1"
     "@types/chrome" "^0.0.103"
