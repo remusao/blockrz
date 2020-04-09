@@ -23,7 +23,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.13.1", "@cliqz/adblocker-content@^1.14.0":
+"@cliqz/adblocker-content@^1.14.0":
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.14.0.tgz#76340de701ea266edb33337f509b6df8b60f17e6"
   integrity sha512-dZTcriLxDvzXo/PmOsf1F+jyTwIogkatjV3t8OGA9elW701aADrzMsMFBAB4c/DNdfYZAMXZxbYMkHC11uxG4A==
@@ -35,25 +35,37 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.14.0"
 
-"@cliqz/adblocker-webextension@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.13.1.tgz#090d2e08dea4485410c4f01b1960ee861c546442"
-  integrity sha512-Ojngga8CnY+czaS/kY7vw/VNRCOLIX2FRYXTBi6REi3QP5YjG8fpS/IlOSPd1e52+g5qBqiq/fZH2Mew/gIbgQ==
+"@cliqz/adblocker-webextension@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.14.0.tgz#e722d69fcebed9e03fac945b2cb6a95ea7bd20e9"
+  integrity sha512-UFG9GckLOESv9PJSFee231mYftqOmxV9U/UN5qFi9wkcKRDsEJofGpedNba6PAYdi1+Lw2xUcIaY8Hbf8A3ekg==
   dependencies:
-    "@cliqz/adblocker" "^1.13.1"
-    "@cliqz/adblocker-content" "^1.13.1"
-    tldts-experimental "^5.6.3"
+    "@cliqz/adblocker" "^1.14.0"
+    "@cliqz/adblocker-content" "^1.14.0"
+    tldts-experimental "^5.6.21"
     webextension-polyfill-ts "^0.14.0"
 
-"@cliqz/adblocker@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.13.1.tgz#0912012728a743c99232992572dda76cd127833a"
-  integrity sha512-RvM58CtqS2oNss0K7gB67iu/bd5gu7BXYOb6kPriMs5qKAJyItM9CD+7GRS7FA0x7M0O4rONf6rzfF32IO0+YA==
+"@cliqz/adblocker@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.14.0.tgz#39f7fc38a766b35b12944ac0cff8edd3b3f9d62b"
+  integrity sha512-9xmKlm9Bf9ULvlbpFYi/jcVXotGkwHQs+pUW9ZYoVwtDRjDZppWu0qXswzc84cR6WGIlTtRkEmtbZdl2W59i0g==
   dependencies:
+    "@remusao/guess-url-type" "^1.1.2"
+    "@remusao/small" "^1.1.2"
     "@remusao/smaz" "^1.7.1"
     "@types/chrome" "^0.0.103"
     "@types/firefox-webext-browser" "^70.0.1"
-    tldts-experimental "^5.6.3"
+    tldts-experimental "^5.6.21"
+
+"@remusao/guess-url-type@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@remusao/guess-url-type/-/guess-url-type-1.1.2.tgz#2525582aba523c1c91891c5bd3a3c8b811b5b823"
+  integrity sha512-NDcy4J7bieEU2WYSn1LZKjaIG+5ORDWXA//6dXnppVYPmmJ9zjJ1vJVKUKdZ1mjvTp7WLzQH6QD/wygaZ13G1Q==
+
+"@remusao/small@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@remusao/small/-/small-1.1.2.tgz#f86ee1992cf244a53d8ea6b606202ff13cb3d2d1"
+  integrity sha512-cMteQVgRT+LhSTQQdR0pWlLRXOTV8FeePOxcwkrroYCKIWpqIKNvbimAEiioMlclDmSHos9Nu+Wz3iNIDsyQaQ==
 
 "@remusao/smaz-compress@^1.8.0":
   version "1.8.0"
@@ -435,17 +447,17 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-tldts-core@^5.6.19:
-  version "5.6.19"
-  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-5.6.19.tgz#def8a3906a3f4719d8904aebe61410649f629035"
-  integrity sha512-v3VfZrMv9t6Y7B5gfTWjQ0u8zZ2/fWNkCMc3qVKwUnJplP4AYeqmRh8T/0668luRV00L5RAfV9ccvWoduPy1Ow==
+tldts-core@^5.6.22:
+  version "5.6.22"
+  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-5.6.22.tgz#eb5fbcba6d88b8ade54afdd4caad73354c639faa"
+  integrity sha512-F5eb6eQJvU2LCGar0jVrTTJS8+IGYaeXgAeAm+arFuzMI78e2Vy/pm7p31YIhNqwRVsUmLSP42tTYBM/4I5BCw==
 
-tldts-experimental@^5.6.3:
-  version "5.6.19"
-  resolved "https://registry.yarnpkg.com/tldts-experimental/-/tldts-experimental-5.6.19.tgz#e464b9b37d3e7daa05e33fe4af2a53885890da8e"
-  integrity sha512-ptzb4l3bdufUoNcG++3nLqLWHcEtK3u/OyZsmDLAmY2iNeg+7sURwXcW91OEZbHOYMDl5uk0Ikr3pdwJxUYKvw==
+tldts-experimental@^5.6.21:
+  version "5.6.22"
+  resolved "https://registry.yarnpkg.com/tldts-experimental/-/tldts-experimental-5.6.22.tgz#d88458da02cdd885d86ad74e03bb3919625649b9"
+  integrity sha512-i7oDV02oZeTBYeCzsF4MhBEB/oQM9zdA0RYFPLTeIk5Wb0ob/ngDSXmpXnUHGv9+uzoLBVwecUAna//R61C4Lw==
   dependencies:
-    tldts-core "^5.6.19"
+    tldts-core "^5.6.22"
 
 tslib@^1.10.0, tslib@^1.8.1:
   version "1.11.1"
