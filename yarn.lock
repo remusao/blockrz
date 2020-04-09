@@ -23,17 +23,17 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.13.1.tgz#2ca6aefda1668051326e9260f5b6c66d312fe6aa"
-  integrity sha512-2qHbhH3K+QehBAmuspV2pUr0avXHRh4/8RAeiujlHQTK0pnFIvUFgF4ZVDvUpmRNlxG1KFA2lcgkJoGZz5zH+A==
+"@cliqz/adblocker-content@^1.13.1", "@cliqz/adblocker-content@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.14.0.tgz#76340de701ea266edb33337f509b6df8b60f17e6"
+  integrity sha512-dZTcriLxDvzXo/PmOsf1F+jyTwIogkatjV3t8OGA9elW701aADrzMsMFBAB4c/DNdfYZAMXZxbYMkHC11uxG4A==
 
-"@cliqz/adblocker-webextension-cosmetics@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension-cosmetics/-/adblocker-webextension-cosmetics-1.13.1.tgz#732e0784d1a6395bb8fb654f5296853e77081155"
-  integrity sha512-N9dLybkl2tfqdLf4cC6n12x2uiiMfEyJaKAq4K6TgdEGD3VfSWwaLq3AMBEepbbJgAQzjUx2hDUeCUESOqI90w==
+"@cliqz/adblocker-webextension-cosmetics@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension-cosmetics/-/adblocker-webextension-cosmetics-1.14.0.tgz#456cbfab0637c8128648ea17d3e415e21ea12fb9"
+  integrity sha512-YiDZybguwQnZgTOIC0OEd03NOGdz9NTjM2JRhKC06HoK7rshNVhW6hhXImUSHiwAXyVFoyBnef1RdzLAZwqu/A==
   dependencies:
-    "@cliqz/adblocker-content" "^1.13.1"
+    "@cliqz/adblocker-content" "^1.14.0"
 
 "@cliqz/adblocker-webextension@^1.13.1":
   version "1.13.1"
