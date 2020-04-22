@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@cliqz/adblocker-webextension": "^1.14.1",
-    "@cliqz/adblocker-webextension-cosmetics": "^1.14.1",
+    "@cliqz/adblocker-webextension-cosmetics": "^1.14.2",
     "webextension-polyfill-ts": "^0.14.0"
   }
 }
