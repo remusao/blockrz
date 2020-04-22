@@ -23,7 +23,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@cliqz/adblocker-content@^1.14.1", "@cliqz/adblocker-content@^1.14.2":
+"@cliqz/adblocker-content@^1.14.2":
   version "1.14.2"
   resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.14.2.tgz#9b4ec4df933c30757ea0c2dffb51c8e86e806f87"
   integrity sha512-q0D02xAjaYofprkcfk3YY26rYdAlDIkDnZh/BWHFfHVnQTYaKp9LgPVwN0Ypn64ypAojfG2inY5vRSdy67CATA==
@@ -35,25 +35,25 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.14.2"
 
-"@cliqz/adblocker-webextension@^1.14.1":
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.14.1.tgz#7d8a6eddae9008a6eb8ac3ee195a859de71bcc17"
-  integrity sha512-ZS8flvLOelX8ibsW4VA2ZzbVFmyTre37riOgnYKqkzV9nT+2MwVY/op2EGO3ajryfLbxG9QFZVpARsQSoV1lOg==
+"@cliqz/adblocker-webextension@^1.14.2":
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.14.2.tgz#27fd49e442e9d9b0556f9f6816e4aadcb4911cf6"
+  integrity sha512-+pITcolDxLdDkyYCL6i0m4umyN9eeIUZRGT/8zl10YLwX+w+QC1BGwYpY6Wh8NY7FHio8pY8AaTygF7uhUp9dw==
   dependencies:
-    "@cliqz/adblocker" "^1.14.1"
-    "@cliqz/adblocker-content" "^1.14.1"
+    "@cliqz/adblocker" "^1.14.2"
+    "@cliqz/adblocker-content" "^1.14.2"
     tldts-experimental "^5.6.21"
     webextension-polyfill-ts "^0.14.0"
 
-"@cliqz/adblocker@^1.14.1":
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.14.1.tgz#e33439a25778d2c42af4aad00267ea0685311f01"
-  integrity sha512-L/k/qnzw1gNo8zZywMhSGlifUTdi2iUAG09NPY2XfGG2ZCGel3qGZ0nLQbjmU9W0l6t6k8bO52Dlhh825Hqppg==
+"@cliqz/adblocker@^1.14.2":
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.14.2.tgz#389eb6cdbff5f14651cb5267bf02519ea548af70"
+  integrity sha512-H5EsO7aFdX3XcJL3MSlbLbUhJxZf2T5LX1LGhIRR2mNHrfnT801/192EQFGhP/Rx72lg5EBFuMsqEFOBfeECTg==
   dependencies:
     "@remusao/guess-url-type" "^1.1.2"
     "@remusao/small" "^1.1.2"
     "@remusao/smaz" "^1.7.1"
-    "@types/chrome" "^0.0.103"
+    "@types/chrome" "^0.0.104"
     "@types/firefox-webext-browser" "^70.0.1"
     tldts-experimental "^5.6.21"
 
@@ -133,10 +133,10 @@
     estree-walker "^1.0.1"
     micromatch "^4.0.2"
 
-"@types/chrome@^0.0.103":
-  version "0.0.103"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.103.tgz#604f3d94ab4465cc8cde302c4916f4955eb7e8b6"
-  integrity sha512-s8So1IG1fIu2dg2MRV3k6W5OjlVaJriNXIxIWDHi+Rdz5dLeuzPKcWzkVlcaVL4gONfn44JKC0RhW+P0UohLfg==
+"@types/chrome@^0.0.104":
+  version "0.0.104"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.104.tgz#4dbb61b8e334fdcd23b8418de9f46d26668013c4"
+  integrity sha512-NDq+Vpphs5XT7IXrIHJcy27Rvf09Mes3XNsfpP2yOXUk6YiEU1QRcSLjj/A+y5jyq/kpUwC5shNET2jFeWAqEw==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
