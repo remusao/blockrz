@@ -1,11 +1,11 @@
 {
-  "description": "Build yourself an adblocker",
+  "description": "Tiny adblocker",
   "manifest_version": 2,
-  "name": "blockrz",
-  "version": "0.0.1",
+  "name": "adblocker",
+  "version": "1.0.0",
   "homepage_url": "https://github.com/remusao/blockrz",
   "icons": {
-    "48": "cliqz.png"
+    "48": "shield.svg"
   },
   "permissions": [
     "webRequest",
@@ -20,7 +20,7 @@
     ]
   },
   "browser_action": {
-    "default_title": "Blockrz"
+    "default_title": "Adblocker"
   },
   "content_scripts": [
     {

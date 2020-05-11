@@ -1,11 +1,11 @@
 {
-  "name": "blockrz",
-  "version": "0.0.1",
-  "description": "Build yourself an adblocker",
-  "author": "Cliqz",
+  "name": "adblocker",
+  "version": "1.0.0",
+  "description": "Tiny adblocker",
+  "author": "remusao",
   "license": "MPL-2.0",
   "scripts": {
-    "clean": "rm -rfv build *.bundle.js",
+    "clean": "rm -rfv build *.bundle.js *.map web-ext-artifacts",
     "lint": "tslint --config tslint.json '*.ts'",
     "bundle": "rollup --config rollup.config.ts",
     "watch": "rollup --config rollup.config.ts --watch",

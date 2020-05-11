@@ -10,6 +10,8 @@ project and contributions to improve it are more than welcome.
 
 ## Building
 
+Building code from https://github.com/remusao/blockrz can be done with:
+
 1. Build the extension: `yarn install --frozen-lock && yarn bundle`
 2. Load it in Firefox or Chromium by using the "Load unpacked extension" feature
 
@@ -25,9 +27,9 @@ $ loc content-script.ts background.ts
 --------------------------------------------------------------------------------
  Language             Files        Lines        Blank      Comment         Code
 --------------------------------------------------------------------------------
- TypeScript               2          143           15           70           58
+ TypeScript               2          125           11           44           70
 --------------------------------------------------------------------------------
- Total                    2          143           15           70           58
+ Total                    2          125           11           44           70
 --------------------------------------------------------------------------------
 ```
 
