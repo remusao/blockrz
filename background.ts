@@ -53,4 +53,14 @@ WebExtensionBlocker.fromPrebuiltAdsAndTracking().then((blocker: WebExtensionBloc
   blocker.on('request-blocked', incrementBlockedCounter);
   blocker.on('request-redirected', incrementBlockedCounter);
   console.log('Ready to roll!');
+
+  chrome.browserAction.onClicked.addListener(() => {
+    if (blocker.isBlockingEnabled(browser)) {
+      blocker.disableBlockingInBrowser(browser);
+      chrome.browserAction.setBadgeBackgroundColor({ color: '#FF0000' });
+    } else {
+      blocker.enableBlockingInBrowser(browser);
+      chrome.browserAction.setBadgeBackgroundColor({ color: '#00AEF0' });
+    }
+  });
 });
