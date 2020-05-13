@@ -1,7 +1,7 @@
 {
   "name": "adblocker",
-  "version": "1.0.0",
-  "description": "Tiny adblocker",
+  "version": "1.0.1",
+  "description": "Pico Adblocker",
   "author": "remusao",
   "license": "MPL-2.0",
   "scripts": {
