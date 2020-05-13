@@ -1,4 +1,4 @@
-background.bundle.js
-content-script.bundle.js
-build/
+*.bundle.js
+*.map
 node_modules/
+web-ext-artifacts/
