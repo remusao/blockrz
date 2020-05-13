@@ -1,18 +1,21 @@
 {
+  "name": "Pico Adblocker",
   "description": "A super minimal blocker of ads, trackers and annoyances which works out of the box",
   "manifest_version": 2,
-  "name": "Pico Adblocker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage_url": "https://github.com/remusao/blockrz",
+  "author": "remusao",
   "icons": {
-    "48": "shield.svg"
+    "48": "shield.svg",
+    "96": "shield.svg"
   },
   "permissions": [
     "webRequest",
     "webRequestBlocking",
     "tabs",
-    "http://*/*",
-    "https://*/*"
+    "<all_urls>",
+    "storage",
+    "unlimitedStorage"
   ],
   "background": {
     "scripts": [

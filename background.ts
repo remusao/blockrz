@@ -6,6 +6,7 @@
  * scriptlets in pages).
  */
 
+import { get, set } from 'idb-keyval';
 import { browser } from 'webextension-polyfill-ts';
 import {
   BlockingResponse,
@@ -15,7 +16,15 @@ import {
 } from '@cliqz/adblocker-webextension';
 
 /**
- * Keep track of number of network requests altered for each tab
+ * Disable badge by default! Although in practice initialization should take
+ * less than a second, it makes sense conceptually to not show an active badge
+ * until the adblocker engine is initialized. Although unlikely, it also means
+ * that the badge will stay inactive if the adblocker fails to initialize.
+ */
+browser.browserAction.disable();
+
+/**
+ * Keep track of number of network requests altered for each tab.
  */
 const counter: Map<number, number> = new Map();
 
@@ -46,40 +55,31 @@ async function updateBadgeForCurrentTab(): Promise<void> {
  * This function will also make sure that updates are throttled to not use too
  * much CPU when pages are loading and many network requests are triggered.
  */
-const updateBadgeThrottled = (() => {
-  let timer: NodeJS.Timeout | null = null;
-  return () => {
-    if (timer === null) {
-      timer = setTimeout(async () => {
-        console.log('Update badge');
-        timer = null;
-        await updateBadgeForCurrentTab();
-      }, 1000);
-    }
-  };
-})();
+let TIMER: NodeJS.Timeout | null = null;
+function updateBadgeThrottled() {
+  if (TIMER === null) {
+    TIMER = setTimeout(async () => {
+      TIMER = null;
+      await updateBadgeForCurrentTab();
+    }, 500);
+  }
+}
 
 /**
  * Helper function used to both reset, increment and show the current value of
  * the blocked requests counter for a given tabId.
  */
-function updateBlockedCounter(
-  tabId: number,
-  { reset = false, incr = false } = {},
-) {
+function updateBlockedCounter(tabId: number, { reset = false, incr = false } = {}) {
   updateBadgeThrottled();
   counter.set(
     tabId,
-    (reset === true ? 0 : counter.get(tabId) || 0) + (incr === true ? 1 : 0),
+    (reset ? 0 : (counter.get(tabId) || 0)) + (incr  ? 1 : 0),
   );
 }
 
-function incrementBlockedCounter(
-  request: Request,
-  blockingResponse: BlockingResponse,
-): void {
+function incrementBlockedCounter(request: Request, response: BlockingResponse): void {
   updateBlockedCounter(request.tabId, {
-    incr: Boolean(blockingResponse.match),
+    incr: Boolean(response.match),
     reset: request.isMainFrame(),
   });
 }
@@ -90,30 +90,76 @@ browser.tabs.onActivated.addListener(({ tabId }) => updateBadgeForTab(tabId));
 // Reset counter if tab is reloaded
 browser.tabs.onUpdated.addListener((tabId, { status, url }) => {
   if (status === 'loading' && url === undefined) {
-    updateBlockedCounter(tabId, {
-      incr: false,
-      reset: true,
-    });
+    updateBlockedCounter(tabId, { incr: false, reset: true });
   }
 });
 
-WebExtensionBlocker.fromLists(fetch, fullLists, {
-  enableCompression: true,
-  enableHtmlFiltering: true,
-}).then((blocker: WebExtensionBlocker) => {
+function disable(blocker: WebExtensionBlocker) {
+  blocker.disableBlockingInBrowser(browser);
+  blocker.unsubscribe('request-blocked', incrementBlockedCounter);
+  blocker.unsubscribe('request-redirected', incrementBlockedCounter);
+}
+
+function enable(blocker: WebExtensionBlocker) {
   blocker.enableBlockingInBrowser(browser);
   blocker.on('request-blocked', incrementBlockedCounter);
   blocker.on('request-redirected', incrementBlockedCounter);
-  console.log('Ready to roll!');
+}
 
-  browser.browserAction.onClicked.addListener(() => {
+(async () => {
+  let blocker = WebExtensionBlocker.empty();
+  enable(blocker);
+
+  // Handle toggling of blocking based on clicking on the icon. The behavior is
+  // currently to disable or enable the adblocker globally (and not on a per-tab
+  // basis as might be expected); this is in line with the bare-bone spirit of
+  // this extension.
+  browser.browserAction.onClicked.addListener(async () => {
+    browser.browserAction.setBadgeText({ text: '0' });
     if (blocker.isBlockingEnabled(browser)) {
-      blocker.disableBlockingInBrowser(browser);
       browser.browserAction.setBadgeBackgroundColor({ color: '#FF0000' });
+      browser.browserAction.setIcon({ path: './shield-disabled.svg' });
+      disable(blocker);
     } else {
-      blocker.enableBlockingInBrowser(browser);
       browser.browserAction.setBadgeBackgroundColor({ color: '#00AEF0' });
+      browser.browserAction.setIcon({ path: './shield.svg' });
+      enable(blocker);
     }
-    browser.tabs.reload();
   });
-});
+
+  // Handle hot-swapping an adblocker instance for another. It will gracefully
+  // enable blocking with the new instance and disable the previous one. The new
+  // instance is then stored globally in `blocker`.
+  const upgrade = (newBlocker: WebExtensionBlocker) => {
+    // We only enable blocking with newBlocker if we were already blocking in
+    // `browser`. This allows to make sure we respect the toggling ON/OFF of the
+    // adblocker, even on updates.
+    if (blocker.isBlockingEnabled(browser)) {
+      enable(newBlocker);
+      disable(blocker);
+    }
+
+    // Keep new instance globally (and garbage collect previous one).
+    blocker = newBlocker;
+  };
+
+  // Load from cache (IndexedBD) or pre-built in extension (a serialized engine
+  // is shipped as part of the XPI and allows to initialize the adblocker very
+  // fast on cold start). This allows to start the extension in less than 200ms.
+  upgrade(WebExtensionBlocker.deserialize((await get('engine')) || new Uint8Array(
+    await (await fetch(browser.runtime.getURL('engine.bin'))).arrayBuffer(),
+  )));
+
+  // Set status of badge to 'enabled' and set default value.
+  browser.browserAction.enable();
+  browser.browserAction.setBadgeBackgroundColor({ color: '#00AEF0' });
+  browser.browserAction.setBadgeText({ text: '0' });
+
+  // Update from remote lists, we then wait a few seconds (~5 seconds) and
+  // attempt a full update of the engine based on remote lists. This usually
+  // takes a couple of seconds, mostly to fetch the resources.
+  setTimeout(async () => {
+    upgrade(await WebExtensionBlocker.fromLists(fetch, fullLists, blocker.config));
+    await set('engine', blocker.serialize());
+  }, 5000);
+})();
