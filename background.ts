@@ -20,6 +20,46 @@ import {
 const counter: Map<number, number> = new Map();
 
 /**
+ * Update badge with count for tab with id `tabId` using value from `counter`.
+ */
+function updateBadgeForTab(tabId: number): Promise<void> {
+  return browser.browserAction.setBadgeText({
+    text: '' + (counter.get(tabId) || 0),
+  });
+}
+
+/**
+ * Update badge with count for currently active tab using value from `counter`.
+ */
+async function updateBadgeForCurrentTab(): Promise<void> {
+  const tabs = await browser.tabs.query({ active: true });
+  if (tabs.length === 1) {
+    const { id } = tabs[0];
+    if (id !== undefined) {
+      await updateBadgeForTab(id);
+    }
+  }
+}
+
+/**
+ * Update badge with count for currently active tab using value from `counter`.
+ * This function will also make sure that updates are throttled to not use too
+ * much CPU when pages are loading and many network requests are triggered.
+ */
+const updateBadgeThrottled = (() => {
+  let timer: NodeJS.Timeout | null = null;
+  return () => {
+    if (timer === null) {
+      timer = setTimeout(async () => {
+        console.log('Update badge');
+        timer = null;
+        await updateBadgeForCurrentTab();
+      }, 1000);
+    }
+  };
+})();
+
+/**
  * Helper function used to both reset, increment and show the current value of
  * the blocked requests counter for a given tabId.
  */
@@ -27,17 +67,7 @@ function updateBlockedCounter(
   tabId: number,
   { reset = false, incr = false } = {},
 ) {
-  chrome.tabs.query({ active: true }, (tabs) => {
-    if (tabs.length === 1) {
-      const { id } = tabs[0];
-      if (id !== undefined) {
-        chrome.browserAction.setBadgeText({
-          text: '' + (counter.get(id) || 0),
-        });
-      }
-    }
-  });
-
+  updateBadgeThrottled();
   counter.set(
     tabId,
     (reset === true ? 0 : counter.get(tabId) || 0) + (incr === true ? 1 : 0),
@@ -55,12 +85,10 @@ function incrementBlockedCounter(
 }
 
 // Whenever the active tab changes, then we update the count of blocked request
-chrome.tabs.onActivated.addListener(({ tabId }: chrome.tabs.TabActiveInfo) =>
-  updateBlockedCounter(tabId),
-);
+browser.tabs.onActivated.addListener(({ tabId }) => updateBadgeForTab(tabId));
 
 // Reset counter if tab is reloaded
-chrome.tabs.onUpdated.addListener((tabId, { status, url }) => {
+browser.tabs.onUpdated.addListener((tabId, { status, url }) => {
   if (status === 'loading' && url === undefined) {
     updateBlockedCounter(tabId, {
       incr: false,
@@ -78,14 +106,14 @@ WebExtensionBlocker.fromLists(fetch, fullLists, {
   blocker.on('request-redirected', incrementBlockedCounter);
   console.log('Ready to roll!');
 
-  chrome.browserAction.onClicked.addListener(() => {
+  browser.browserAction.onClicked.addListener(() => {
     if (blocker.isBlockingEnabled(browser)) {
       blocker.disableBlockingInBrowser(browser);
-      chrome.browserAction.setBadgeBackgroundColor({ color: '#FF0000' });
+      browser.browserAction.setBadgeBackgroundColor({ color: '#FF0000' });
     } else {
       blocker.enableBlockingInBrowser(browser);
-      chrome.browserAction.setBadgeBackgroundColor({ color: '#00AEF0' });
+      browser.browserAction.setBadgeBackgroundColor({ color: '#00AEF0' });
     }
-    chrome.tabs.reload();
+    browser.tabs.reload();
   });
 });
