@@ -117,11 +117,9 @@ function enable(blocker: WebExtensionBlocker) {
   browser.browserAction.onClicked.addListener(async () => {
     browser.browserAction.setBadgeText({ text: '0' });
     if (blocker.isBlockingEnabled(browser)) {
-      browser.browserAction.setBadgeBackgroundColor({ color: '#FF0000' });
       browser.browserAction.setIcon({ path: './shield-disabled.svg' });
       disable(blocker);
     } else {
-      browser.browserAction.setBadgeBackgroundColor({ color: '#00AEF0' });
       browser.browserAction.setIcon({ path: './shield.svg' });
       enable(blocker);
     }
@@ -152,7 +150,6 @@ function enable(blocker: WebExtensionBlocker) {
 
   // Set status of badge to 'enabled' and set default value.
   browser.browserAction.enable();
-  browser.browserAction.setBadgeBackgroundColor({ color: '#00AEF0' });
   browser.browserAction.setBadgeText({ text: '0' });
 
   // Update from remote lists, we then wait a few seconds (~5 seconds) and

@@ -2,7 +2,7 @@
   "name": "Pico Adblocker",
   "description": "A super minimal blocker of ads, trackers and annoyances which works out of the box",
   "manifest_version": 2,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "homepage_url": "https://github.com/remusao/blockrz",
   "author": "remusao",
   "icons": {
