@@ -1,6 +1,6 @@
 {
   "name": "pico-adblocker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A super minimal blocker of ads, trackers and annoyances which works out of the box",
   "author": "remusao",
   "license": "MPL-2.0",
