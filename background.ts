@@ -117,10 +117,10 @@ function enable(blocker: WebExtensionBlocker) {
   browser.browserAction.onClicked.addListener(async () => {
     browser.browserAction.setBadgeText({ text: '0' });
     if (blocker.isBlockingEnabled(browser)) {
-      browser.browserAction.setIcon({ path: './shield-disabled.svg' });
+      browser.browserAction.setIcon({ path: './icons/shield-disabled-128.png' });
       disable(blocker);
     } else {
-      browser.browserAction.setIcon({ path: './shield.svg' });
+      browser.browserAction.setIcon({ path: './icons/shield-128.png' });
       enable(blocker);
     }
   });
