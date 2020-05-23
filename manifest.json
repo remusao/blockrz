@@ -1,20 +1,17 @@
 {
-  "name": "Pico Adblocker",
+  "name": "ATO Blocker",
   "description": "A super minimal blocker of ads, trackers and annoyances which works out of the box",
   "manifest_version": 2,
-  "version": "1.0.8",
+  "version": "1.0.9",
   "homepage_url": "https://github.com/remusao/blockrz",
   "author": "remusao",
   "icons": {
-    "32": "./icons/shield-32.png",
-    "48": "./icons/shield-48.png",
-    "64": "./icons/shield-64.png",
-    "96": "./icons/shield-96.png",
-    "128": "./icons/shield-128.png"
+    "128": "./icons/icon-o-0.png"
   },
   "permissions": [
     "webRequest",
     "webRequestBlocking",
+    "webNavigation",
     "tabs",
     "<all_urls>",
     "storage",
@@ -26,7 +23,7 @@
     ]
   },
   "browser_action": {
-    "default_title": "Adblocker"
+    "default_title": "ΛΤΟ Blocker"
   },
   "content_scripts": [
     {

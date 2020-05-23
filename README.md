@@ -1,4 +1,30 @@
-# Blockrz
+
+&nbsp;
+<p align="center">
+  <img src="https://raw.githubusercontent.com/remusao/blockrz/master/banner-light.png" width="300px" alt="ATO Blocker" />
+</p>
+<h3 align="center">Fastest and Smallest Adblocker</h3>
+
+<p align="center">
+  <em>
+    Efficient
+    · Minimal
+    · Adblocker
+    · Privacy
+  </em>
+</p>
+
+<p align="center">
+  <a href="https://cliqz.com" target="_blank" rel="noopener noreferrer">
+    <img alt="powered by Cliqz" src="https://img.shields.io/badge/cliqz-powered-blue?logo=cliqz&style=flat-square">
+  </a>
+  <a href="https://twitter.com/remusao">
+    <img alt="Follow me on Twitter" src="https://img.shields.io/twitter/follow/remusao.svg?logo=twitter&label=remusao&style=flat-square"></a>
+  <a href="https://github.com/remusao/blockrz/blob/master/LICENSE">
+    <img alt="License Badge" src="https://img.shields.io/github/license/remusao/blockrz?style=flat-square"></a>
+</p>
+
+-----
 
 Build yourself an adblocker in less than 100 lines of TypeScript! This
 is a minimal WebExtension doing adblocking/antitracking using most
@@ -26,9 +52,9 @@ $ loc content-script.ts background.ts
 --------------------------------------------------------------------------------
  Language             Files        Lines        Blank      Comment         Code
 --------------------------------------------------------------------------------
- TypeScript               2          200           21           79          100
+ TypeScript               2          122           12           52           58
 --------------------------------------------------------------------------------
- Total                    2          200           21           79          100
+ Total                    2          122           12           52           58
 --------------------------------------------------------------------------------
 ```
 
