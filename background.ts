@@ -35,7 +35,6 @@ function enable(blocker: WebExtensionBlocker, incrementBlockedCounter: (_: { tab
       './icons/icon-o-3.png',
       './icons/icon-o-5.png',
       './icons/icon-o-6.png',
-      './icons/icon-o-7.png',
     ],
     minimumUpdateLatency: 300,
   });
