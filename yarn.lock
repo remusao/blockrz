@@ -103,10 +103,10 @@
     "@types/firefox-webext-browser" "^70.0.1"
     tldts-experimental "^5.6.21"
 
-"@remusao/badger@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.1.0.tgz#4b86b2099510f54b0f07bc27da4e50ebd50e453c"
-  integrity sha512-dbJ+MxD8poUGPk/fxpSg6jmx+EyzXa7PAw8gnLk9tYTufTtAcs/ZCuaMSd1R+REFkfu/xVvEI9a/xxwBQF84vg==
+"@remusao/badger@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.1.1.tgz#2cddec7dc404bdb5ec72c736bc6a30a1536f32c9"
+  integrity sha512-LvV032Sn8LJEqbl/C5yp4T1yhUpeZgCWi2Mi71qj8cUrmnuKM3zmL6RDGa2yNJksgDGnILrmoki6dOLOKhRd4Q==
   dependencies:
     webextension-polyfill-ts "^0.15.0"
 
