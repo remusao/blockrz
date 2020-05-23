@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/remusao/blockrz/master/banner-light.png" width="300px" alt="ATO Blocker" />
 </p>
-<h3 align="center">Fastest and Smallest Adblocker</h3>
+<h3 align="center">Super minimal blocker of ads, trackers and annoyances which works out of the box</h3>
 
 <p align="center">
   <em>
@@ -18,8 +18,8 @@
   <a href="https://cliqz.com" target="_blank" rel="noopener noreferrer">
     <img alt="powered by Cliqz" src="https://img.shields.io/badge/cliqz-powered-blue?logo=cliqz&style=flat-square">
   </a>
-  <a href="https://twitter.com/remusao">
-    <img alt="Follow me on Twitter" src="https://img.shields.io/twitter/follow/remusao.svg?logo=twitter&label=remusao&style=flat-square"></a>
+  <a href="https://twitter.com/pythux">
+    <img alt="Follow me on Twitter" src="https://img.shields.io/twitter/follow/pythux.svg?logo=twitter&label=follow&style=flat-square"></a>
   <a href="https://github.com/remusao/blockrz/blob/master/LICENSE">
     <img alt="License Badge" src="https://img.shields.io/github/license/remusao/blockrz?style=flat-square"></a>
 </p>
@@ -82,4 +82,3 @@ time of this writing are:
 * [uBlock filters - Resource abuse](https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt)
 * [uBlock filters - Badware risks](https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt)
 * [uBlock filters - Unbreak](https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt)
-* Cliqz and WhoTracks.me custom filters
