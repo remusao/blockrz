@@ -26,13 +26,25 @@
 
 -----
 
-Build yourself an adblocker in less than 100 lines of TypeScript! This
-is a minimal WebExtension doing adblocking/antitracking using most
-popular block-lists. It is meant as a very thin wrapper around the
-[adblocker](https://github.com/cliqz-oss/adblocker) library which does
-most of the heavy-lifting. The code is also heavily commented and aims
-at explaining how a modern content-blocker works. This is a didactic
-project and contributions to improve it are more than welcome.
+A super minimal blocker of ads, trackers and annoyances which works out of the box:
+
+* Blocks ads.
+* Blocks tracking.
+* Blocks annoyances.
+* Very small memory and CPU footprint(*).
+* Fast loading time(**).
+
+This extension does not offer options to configure the behavior of the extension and is aimed at people who want a content blocker which just works out of the box. To this effect, the developer of this addon has carefully selected a set of stable and widely used filters lists, updated daily. The following lists are used by default:
+
+* EasyList (ads)
+* EasyList Cookies (annoyances)
+* Peter Lowe’s Ad server list (ads and tracking)
+* EasyPrivacy (tracking)
+* uBlock filters (ads + tracking + annoyances)
+
+(*) The source code weighs ~70KB gzipped and ~190KB uncompressed. The raw memory usage is less than 5MB (1.7MB reported in about:performance), which is smaller than any other adblocker extension.
+
+(**) The blocker is initialized in less than 200ms, even on cold start, which means that ads and trackers are blocked as soon as your browser starts.
 
 ## Building
 
