@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/remusao/blockrz/master/banner-light.png" width="300px" alt="ATO Blocker" />
 </p>
-<h3 align="center">Super minimal blocker of ads, trackers and annoyances which works out of the box</h3>
+<h3 align="center">Super minimal blocker of ads, trackers and annoyances</h3>
 
 <p align="center">
   <em>
