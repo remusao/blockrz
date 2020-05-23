@@ -103,12 +103,13 @@
     "@types/firefox-webext-browser" "^70.0.1"
     tldts-experimental "^5.6.21"
 
-"@remusao/badger@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.1.1.tgz#2cddec7dc404bdb5ec72c736bc6a30a1536f32c9"
-  integrity sha512-LvV032Sn8LJEqbl/C5yp4T1yhUpeZgCWi2Mi71qj8cUrmnuKM3zmL6RDGa2yNJksgDGnILrmoki6dOLOKhRd4Q==
+"@remusao/badger@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.1.2.tgz#e6e317043df5f8c18aafaeaaa47f7ca7f9654b75"
+  integrity sha512-LKJ0hI1cMGsvLF/X4ApXV2CrrMcC52a58z5eu0JefBkS7QyzxrXHCTjhaY1Ixue4Gztvl9pMDfHRLbFFOd2xDw==
   dependencies:
-    webextension-polyfill-ts "^0.15.0"
+    "@types/chrome" "^0.0.114"
+    "@types/firefox-webext-browser" "^70.0.1"
 
 "@remusao/guess-url-type@^1.1.2":
   version "1.1.2"
