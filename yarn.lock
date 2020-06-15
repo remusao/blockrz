@@ -103,12 +103,12 @@
     "@types/firefox-webext-browser" "^70.0.1"
     tldts-experimental "^5.6.21"
 
-"@remusao/badger@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.1.3.tgz#588759b8062d96fe301c6134c5bb2c362db596f3"
-  integrity sha512-p00bE9uEzgciMI1dG1rWEOMgVF1fGup+dwkAi4jgA2ISsSOEXAai7Ip5SQNMjxKBHrevxOH7aYI/3gKPzefDIQ==
+"@remusao/badger@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.2.0.tgz#7a3bd85eb4be4ba1104bace6a426020aeaad7014"
+  integrity sha512-hv8IX92PPiUAYLpiTaf1YoCSBKK1cIjmXV9pcnTmImqOGMe934MqloCdsxIbBIh+7+O9NXMVLoTjULYjgrDTfw==
   dependencies:
-    "@types/chrome" "^0.0.114"
+    "@types/chrome" "^0.0.115"
     "@types/firefox-webext-browser" "^70.0.1"
 
 "@remusao/guess-url-type@^1.1.2":
@@ -205,6 +205,14 @@
   version "0.0.114"
   resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.114.tgz#8ceb33fa261f4b9e307fa7344ba8182d8d410d4e"
   integrity sha512-i7qRr74IrxHtbnrZSKUuP5Uvd5EOKwlwJq/yp7+yTPihOXnPhNQO4Z5bqb1XTnrjdbUKEJicaVVbhcgtRijmLA==
+  dependencies:
+    "@types/filesystem" "*"
+    "@types/har-format" "*"
+
+"@types/chrome@^0.0.115":
+  version "0.0.115"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.115.tgz#dde40ff715a76d8c8125b0fe35287b9fdbc9f3de"
+  integrity sha512-pNoYoYgGuI1/kiz53kjrXrKIjn2H8YWOI+vxVTOubX6arCHk/m/jInoyflKiP2qZHZf8+P+hh6d2y9tjaG4BPQ==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
