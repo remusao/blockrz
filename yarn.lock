@@ -4554,6 +4554,13 @@ webextension-polyfill-ts@^0.17.0:
   dependencies:
     webextension-polyfill "^0.6.0"
 
+webextension-polyfill-ts@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/webextension-polyfill-ts/-/webextension-polyfill-ts-0.18.0.tgz#fc54698f83032b26e491eb8183b08a05f4dd69bd"
+  integrity sha512-quf/QdTZ5jB7D8X8oWKU4EAhMcmABL6n0xFFjANdnuz4WmNZ8q4IRBySge6TOs28rLoegxRJlu4S8l0dpPmAjg==
+  dependencies:
+    webextension-polyfill "^0.6.0"
+
 webextension-polyfill@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.6.0.tgz#1afd925f3274a0d4848083579b9c0b649a5c6763"
