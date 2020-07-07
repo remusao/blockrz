@@ -103,13 +103,13 @@
     "@types/firefox-webext-browser" "^70.0.1"
     tldts-experimental "^5.6.21"
 
-"@remusao/badger@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.2.0.tgz#7a3bd85eb4be4ba1104bace6a426020aeaad7014"
-  integrity sha512-hv8IX92PPiUAYLpiTaf1YoCSBKK1cIjmXV9pcnTmImqOGMe934MqloCdsxIbBIh+7+O9NXMVLoTjULYjgrDTfw==
+"@remusao/badger@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.2.1.tgz#82a77b5aefc7e4c371dc01e1f0527b7cca231979"
+  integrity sha512-NcDTIna7lJo14ed7dgmE0c5bKGsYwaZbAvkAPw0/wsqCfgsafIAeJSbZqBgGIj0+He17LWnaJDtefTR71pFPSQ==
   dependencies:
-    "@types/chrome" "^0.0.115"
-    "@types/firefox-webext-browser" "^70.0.1"
+    "@types/chrome" "^0.0.117"
+    "@types/firefox-webext-browser" "^78.0.0"
 
 "@remusao/guess-url-type@^1.1.2":
   version "1.1.2"
@@ -209,10 +209,10 @@
     "@types/filesystem" "*"
     "@types/har-format" "*"
 
-"@types/chrome@^0.0.115":
-  version "0.0.115"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.115.tgz#dde40ff715a76d8c8125b0fe35287b9fdbc9f3de"
-  integrity sha512-pNoYoYgGuI1/kiz53kjrXrKIjn2H8YWOI+vxVTOubX6arCHk/m/jInoyflKiP2qZHZf8+P+hh6d2y9tjaG4BPQ==
+"@types/chrome@^0.0.117":
+  version "0.0.117"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.117.tgz#c535c00580faa307dd24cb81bd76d42b4e62aca9"
+  integrity sha512-MMr1PHywhr3oFF0aTpezv4hUNr959CkJNtTeeI1a97eBKimx0WR6qIIo/28JcmKJWwKnurF/hF/cE0Q0WV8rLw==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
@@ -248,6 +248,11 @@
   version "70.0.1"
   resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-70.0.1.tgz#53a3915bfbe25e2c5ec439dbdbe6e303610012bb"
   integrity sha512-hjHsTR9vKs+yikWbNS/s7TVCx15M/MEn+VYx47wtT/W/wORsIZDD75gfUfP7lkzi+IxRvKMQBB/5/wMFlfgvgQ==
+
+"@types/firefox-webext-browser@^78.0.0":
+  version "78.0.0"
+  resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-78.0.0.tgz#9f175355beb3824dce8d5811e59585fba84dca6b"
+  integrity sha512-ExCtjncdA1ITEjEitvtjGcXslGPA/ZMxOxzMGfpLHZ6ZJAAx6itQi+ZEctgPFN6uPW4lSJalSsEC+lAz0Wkz9A==
 
 "@types/har-format@*":
   version "1.2.4"
