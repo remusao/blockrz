@@ -29,10 +29,10 @@
     "web-ext": "^4.3.0"
   },
   "dependencies": {
-    "@cliqz/adblocker-webextension": "^1.16.0",
+    "@cliqz/adblocker-webextension": "^1.16.1",
     "@cliqz/adblocker-webextension-cosmetics": "^1.16.1",
     "@remusao/badger": "^1.2.1",
     "idb-keyval": "^3.2.0",
-    "webextension-polyfill-ts": "^0.18.0"
+    "webextension-polyfill-ts": "^0.19.0"
   }
 }
