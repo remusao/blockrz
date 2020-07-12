@@ -19,7 +19,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
-    "@rollup/plugin-typescript": "^5.0.1",
+    "@rollup/plugin-typescript": "^5.0.2",
     "node-fetch": "^2.6.0",
     "rollup": "^2.21.0",
     "rollup-plugin-sourcemaps": "^0.6.2",
