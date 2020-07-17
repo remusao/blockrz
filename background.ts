@@ -23,6 +23,14 @@ function enable(blocker: WebExtensionBlocker, incrementBlockedCounter: (_: { tab
   blocker.on('request-redirected', incrementBlockedCounter);
 }
 
+async function load(): Promise<WebExtensionBlocker> {
+  try {
+    return WebExtensionBlocker.deserialize(await get('engine'));
+  } catch (ex) { /* No valid cached engine */ }
+
+  return WebExtensionBlocker.deserialize(new Uint8Array(await (await fetch(browser.runtime.getURL('engine.bin'))).arrayBuffer()));
+}
+
 (async () => {
   let blocker = WebExtensionBlocker.empty();
   const badge = new Badge({
@@ -78,9 +86,7 @@ function enable(blocker: WebExtensionBlocker, incrementBlockedCounter: (_: { tab
   // Load from cache (IndexedBD) or pre-built in extension (a serialized engine
   // is shipped as part of the XPI and allows to initialize the adblocker very
   // fast on cold start). This allows to start the extension in less than 200ms.
-  upgrade(WebExtensionBlocker.deserialize((await get('engine')) || new Uint8Array(
-    await (await fetch(browser.runtime.getURL('engine.bin'))).arrayBuffer(),
-  )));
+  upgrade(await load());
 
   // Update from remote lists, we then wait a few seconds (~5 seconds) and
   // attempt a full update of the engine based on remote lists. This usually
