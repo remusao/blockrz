@@ -27,15 +27,17 @@ function enable(blocker: WebExtensionBlocker, incrementBlockedCounter: (_: { tab
   let blocker = WebExtensionBlocker.empty();
   const badge = new Badge({
     badgeTextColor: 'white',
-    badgeBackgroundColor: [0, 174, 240, 150],
+    badgeBackgroundColor: [0, 174, 240, 255],
     iconDisabled: './icons/icon-off.png',
-    iconEnabled: [
-      './icons/icon-o-0.png',
-      './icons/icon-o-1.png',
-      './icons/icon-o-3.png',
-      './icons/icon-o-5.png',
-      './icons/icon-o-6.png',
-    ],
+    iconEnabled: './icons/icon-o-0.png',
+    // NOTE: disable animated icon for now.
+    // [
+    //   './icons/icon-o-0.png',
+    //   './icons/icon-o-1.png',
+    //   './icons/icon-o-3.png',
+    //   './icons/icon-o-5.png',
+    //   './icons/icon-o-6.png',
+    // ],
     minimumUpdateLatency: 300,
   });
 
