@@ -29,7 +29,7 @@
     "web-ext": "^5.0.0"
   },
   "dependencies": {
-    "@cliqz/adblocker-webextension": "^1.18.1",
+    "@cliqz/adblocker-webextension": "^1.18.2",
     "@cliqz/adblocker-webextension-cosmetics": "^1.18.1",
     "@remusao/badger": "^1.2.1",
     "idb-keyval": "^3.2.0",
