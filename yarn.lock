@@ -244,9 +244,9 @@
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
 "@types/node@*":
-  version "14.6.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.0.tgz#7d4411bf5157339337d7cff864d9ff45f177b499"
-  integrity sha512-mikldZQitV94akrc4sCcSjtJfsTKt4p+e/s0AGscVA6XArQ9kFclP+ZiYUMnq987rc6QlYxXv/EivqlfSLxpKA==
+  version "14.6.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.2.tgz#264b44c5a28dfa80198fc2f7b6d3c8a054b9491f"
+  integrity sha512-onlIwbaeqvZyniGPfdw/TEhKIh79pz66L1q06WUQqJLnAb6wbjvOtepLYTGHTqzdXgBYIE3ZdmqHDGsRsbBz7A==
 
 "@types/resolve@1.17.1":
   version "1.17.1"
@@ -265,7 +265,7 @@ acorn-jsx@^5.2.0:
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.2.0.tgz#4c66069173d6fdd68ed85239fc256226182b2ebe"
   integrity sha512-HiUX/+K2YpkpJ+SzBffkM/AQ2YE03S0U1kjTLVpoJdhZMOWy8qvXVN9JdLqv2QsaQ6MPYQIuNmwD8zOiYUofLQ==
 
-acorn@^7.3.1:
+acorn@^7.3.1, acorn@^7.4.0:
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.0.tgz#e1ad486e6c54501634c6c397c5c121daa383607c"
   integrity sha512-+G7P8jJmCHr+S+cLfQxygbWhXy+8YTVGzAkpEbcLo2mLoL7tij/VG41QSHACSf5QgYRhMZYHuNc6drJaO0Da+w==
@@ -1520,12 +1520,21 @@ eslint@7.5.0:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-espree@7.2.0, espree@^7.2.0:
+espree@7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/espree/-/espree-7.2.0.tgz#1c263d5b513dbad0ac30c4991b93ac354e948d69"
   integrity sha512-H+cQ3+3JYRMEIOl87e7QdHX70ocly5iW4+dttuR8iYSPr/hXKFb+7dBsZ7+u1adC4VrnPlTkv0+OwuPnDop19g==
   dependencies:
     acorn "^7.3.1"
+    acorn-jsx "^5.2.0"
+    eslint-visitor-keys "^1.3.0"
+
+espree@^7.2.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/espree/-/espree-7.3.0.tgz#dc30437cf67947cf576121ebd780f15eeac72348"
+  integrity sha512-dksIWsvKCixn1yrEXO8UosNSxaDoSYpq9reEjZSbHLpT5hpaCAKTLBwq0RHtLrIr+c0ByiYzWT8KTMRzoRCNlw==
+  dependencies:
+    acorn "^7.4.0"
     acorn-jsx "^5.2.0"
     eslint-visitor-keys "^1.3.0"
 
@@ -3979,9 +3988,9 @@ supports-color@^6.1.0:
     has-flag "^3.0.0"
 
 supports-color@^7.0.0, supports-color@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.1.0.tgz#68e32591df73e25ad1c4b49108a2ec507962bfd1"
-  integrity sha512-oRSIpR8pxT1Wr2FquTNnGet79b3BWljqOuoW/h4oBhxJ/HUbX5nX6JSruTkvXDCFMwDPvsaTTbvMLKZWSy0R5g==
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
+  integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
 
@@ -4014,9 +4023,9 @@ term-size@^2.1.0:
   integrity sha512-a6sumDlzyHVJWb8+YofY4TW112G6p2FCPEAFk+59gIYHv3XHRhm9ltVQ9kli4hNWeQBwSpe8cRN25x0ROunMOw==
 
 terser@^5.0.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.2.0.tgz#e547d0b20926b321d3e524bf9e5bc1b10ba2f360"
-  integrity sha512-nZ9TWhBznZdlww3borgJyfQDrxzpgd0RlRNoxR63tMVry01lIH/zKQDTTiaWRMGowydfvSHMgyiGyn6A9PSkCQ==
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.2.1.tgz#40b971b8d28b4fe98c9e8c0d073ab48e7bb96cd8"
+  integrity sha512-/AOtjRtAMNGO0fIF6m8HfcvXTw/2AKpsOzDn36tA5RfhRdeXyb4RvHxJ5Pah7iL6dFkLk+gOnCaNHGwJPl6TrQ==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
@@ -4046,17 +4055,17 @@ through@2:
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
-tldts-core@^5.6.50:
-  version "5.6.50"
-  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-5.6.50.tgz#720a15768fa55e6faa3b7631f30f4fe818a4dc4b"
-  integrity sha512-TXL3BSfnsGe04qCctKQf3Qtb/uujbWhNAkEwIxUSafW4a2+hE0PndixqActIWHttelnzgKdzKcXCklZeNnKzZA==
+tldts-core@^5.6.52:
+  version "5.6.52"
+  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-5.6.52.tgz#bad0f797ecc2ab6c30fae17da229a19c3fac30f2"
+  integrity sha512-0z3FMQc6xC3zWHPr5xwunfcll8yrxjTh5wfpNCIaVfP2xeJ/x0KLj4CjgG/djkrJJSbZDn3ZAUG/9MreA8wVug==
 
 tldts-experimental@^5.6.21:
-  version "5.6.50"
-  resolved "https://registry.yarnpkg.com/tldts-experimental/-/tldts-experimental-5.6.50.tgz#2144f46acb6d9968addb8d09b884f188bfaf8a62"
-  integrity sha512-2bF8fyAUGE3d/KH5oD8s8YzDgms1hGitestAVNFVx/Yo/munVqUFHHyZFVvke1j8G89jM5+Cnd4vSJopOSpJdQ==
+  version "5.6.52"
+  resolved "https://registry.yarnpkg.com/tldts-experimental/-/tldts-experimental-5.6.52.tgz#bdae878b9bb1e89f19c9d78e81b8ff7352c2bda2"
+  integrity sha512-rcX98dgl75vFTYbJYGwUAzCFEZ+1suz8ZC9KXNZaz7lW0ousQxInehTEmu7t6+Qf4D4QnuU84fax+2x2jr0Urw==
   dependencies:
-    tldts-core "^5.6.50"
+    tldts-core "^5.6.52"
 
 tmp@0.2.1:
   version "0.2.1"

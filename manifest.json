@@ -2,7 +2,7 @@
   "name": "ATO Blocker",
   "description": "A super minimal blocker of ads, trackers and annoyances which works out of the box",
   "manifest_version": 2,
-  "version": "1.0.16",
+  "version": "1.0.17",
   "homepage_url": "https://github.com/remusao/blockrz",
   "author": "remusao",
   "icons": {
