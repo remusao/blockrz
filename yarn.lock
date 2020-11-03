@@ -129,12 +129,12 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@remusao/badger@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.2.1.tgz#82a77b5aefc7e4c371dc01e1f0527b7cca231979"
-  integrity sha512-NcDTIna7lJo14ed7dgmE0c5bKGsYwaZbAvkAPw0/wsqCfgsafIAeJSbZqBgGIj0+He17LWnaJDtefTR71pFPSQ==
+"@remusao/badger@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@remusao/badger/-/badger-1.2.2.tgz#aa1548da0893ea5e684aa698bacf0ea9c68f3e65"
+  integrity sha512-DqM0xQmefEkln7WYtfj064OqEpEnBr7aHZgcNsF/vol25QrtdF38rXBaH5Z4AJe2kk9plE6XnrI6zTSfwww7Xw==
   dependencies:
-    "@types/chrome" "^0.0.117"
+    "@types/chrome" "^0.0.126"
     "@types/firefox-webext-browser" "^78.0.0"
 
 "@remusao/guess-url-type@^1.1.2":
@@ -225,14 +225,6 @@
   integrity sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==
   dependencies:
     defer-to-connect "^1.0.1"
-
-"@types/chrome@^0.0.117":
-  version "0.0.117"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.117.tgz#c535c00580faa307dd24cb81bd76d42b4e62aca9"
-  integrity sha512-MMr1PHywhr3oFF0aTpezv4hUNr959CkJNtTeeI1a97eBKimx0WR6qIIo/28JcmKJWwKnurF/hF/cE0Q0WV8rLw==
-  dependencies:
-    "@types/filesystem" "*"
-    "@types/har-format" "*"
 
 "@types/chrome@^0.0.126":
   version "0.0.126"
