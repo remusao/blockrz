@@ -54,10 +54,10 @@
     "@cliqz-oss/firefox-client" "0.3.1"
     es6-promise "^2.0.1"
 
-"@cliqz/adblocker-content@^1.18.6":
-  version "1.18.6"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.18.6.tgz#a65dd518f3e6d1f2e9fee36ca5ae5615ba7b4cfd"
-  integrity sha512-OXrca20n+cMn9Ase+6oeX3fTmkauQMSb//lMLs56pHyra4foxN5o1rNiBG7qNIypdGQBFiTtGG7Vbp7YO5RQMw==
+"@cliqz/adblocker-content@^1.18.6", "@cliqz/adblocker-content@^1.18.7":
+  version "1.18.7"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-content/-/adblocker-content-1.18.7.tgz#681d2be4b878bc8911ac41dd61302c4ca748a41c"
+  integrity sha512-L2Tnr8dEKRbxRxNzYMCKMfMfKkRjBOP8Fe+xfV3muYozlJclGd34adwwCT5tCNvCeqvwvAtMAGPzEwn363j9uw==
 
 "@cliqz/adblocker-webextension-cosmetics@^1.18.6":
   version "1.18.6"
@@ -66,20 +66,20 @@
   dependencies:
     "@cliqz/adblocker-content" "^1.18.6"
 
-"@cliqz/adblocker-webextension@^1.18.6":
-  version "1.18.6"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.18.6.tgz#291b69511c9a79d7a1847a408874470e2f5df9a8"
-  integrity sha512-C2GwHP5U/4cEgS6CdwGRSJFq78kwMXN1H0/jdU3+jYwp+ScpxzB8M97t5bhT3FWiEMeg0ucBtP4eBvXTiYJdfg==
+"@cliqz/adblocker-webextension@^1.18.7":
+  version "1.18.7"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker-webextension/-/adblocker-webextension-1.18.7.tgz#e62fb9d7f68e7f431bf0fb5571c8899327f0e4e2"
+  integrity sha512-WMQstl+0ADjs3brNWZrXfBA3PBpCFSavfn4pco/Sjq77yJq4ARoqw7is4cz3y+EyYGXq5GgXhfCShgHfkvNTtg==
   dependencies:
-    "@cliqz/adblocker" "^1.18.6"
-    "@cliqz/adblocker-content" "^1.18.6"
+    "@cliqz/adblocker" "^1.18.7"
+    "@cliqz/adblocker-content" "^1.18.7"
     tldts-experimental "^5.6.21"
     webextension-polyfill-ts "^0.22.0"
 
-"@cliqz/adblocker@^1.18.6":
-  version "1.18.6"
-  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.18.6.tgz#07d075c45017db7cd2aff19afe466ad53217d318"
-  integrity sha512-+ro8DoqBaMt9nmfjJF+0Om03/9hdDhRx6NJKzwmW7Pfvd/XhqJ+NiDtdusABSERhCE3nUXCWdu5j09X9HiX6Vg==
+"@cliqz/adblocker@^1.18.7":
+  version "1.18.7"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-1.18.7.tgz#c8d8834dee717513049edb24fb213f0e2429e75a"
+  integrity sha512-c7aUJJWkKJAqiyVKk9sfIXHQO8gYvh/YJ3vTqsNfh6mqTF6HvS9ffYi7i0lyjVnZdHvw+sLDmivKyG94R/srDg==
   dependencies:
     "@remusao/guess-url-type" "^1.1.2"
     "@remusao/small" "^1.1.2"
