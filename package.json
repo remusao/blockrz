@@ -17,7 +17,7 @@
     "preext:build": "yarn bundle"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@rollup/plugin-typescript": "^6.1.0",
     "node-fetch": "^2.6.1",
