@@ -2,10 +2,13 @@ const { writeFileSync } = require('fs');
 
 const fetch = require('node-fetch');
 
-const { WebExtensionBlocker, fullLists } = require('@cliqz/adblocker-webextension');
+const {
+  WebExtensionBlocker,
+  fullLists,
+} = require('@cliqz/adblocker-webextension');
 
 (async () => {
-  console.log("Generate pre-built adblocker engine...");
+  console.log('Generate pre-built adblocker engine...');
   writeFileSync(
     'engine.bin',
     (
@@ -18,6 +21,7 @@ const { WebExtensionBlocker, fullLists } = require('@cliqz/adblocker-webextensio
         guessRequestTypeFromUrl: false,
         integrityCheck: true,
         loadCosmeticFilters: true,
+        loadExtendedSelectors: true,
         loadGenericCosmeticsFilters: true,
         loadNetworkFilters: true,
       })
