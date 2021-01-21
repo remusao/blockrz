@@ -11,13 +11,19 @@ import { browser } from 'webextension-polyfill-ts';
 import { Badge } from '@remusao/badger';
 import { WebExtensionBlocker, fullLists } from '@cliqz/adblocker-webextension';
 
-function disable(blocker: WebExtensionBlocker, incrementBlockedCounter: (_: { tabId: number; }) => void) {
+function disable(
+  blocker: WebExtensionBlocker,
+  incrementBlockedCounter: (_: { tabId: number }) => void,
+) {
   blocker.disableBlockingInBrowser(browser);
   blocker.unsubscribe('request-blocked', incrementBlockedCounter);
   blocker.unsubscribe('request-redirected', incrementBlockedCounter);
 }
 
-function enable(blocker: WebExtensionBlocker, incrementBlockedCounter: (_: { tabId: number; }) => void) {
+function enable(
+  blocker: WebExtensionBlocker,
+  incrementBlockedCounter: (_: { tabId: number }) => void,
+) {
   blocker.enableBlockingInBrowser(browser);
   blocker.on('request-blocked', incrementBlockedCounter);
   blocker.on('request-redirected', incrementBlockedCounter);
@@ -25,10 +31,19 @@ function enable(blocker: WebExtensionBlocker, incrementBlockedCounter: (_: { tab
 
 async function load(): Promise<WebExtensionBlocker> {
   try {
-    return WebExtensionBlocker.deserialize(await get('engine'));
-  } catch (ex) { /* No valid cached engine */ }
+    const serialized = await get('engine');
+    if (serialized !== undefined) {
+      return WebExtensionBlocker.deserialize(serialized);
+    }
+  } catch (ex) {
+    /* No valid cached engine */
+  }
 
-  return WebExtensionBlocker.deserialize(new Uint8Array(await (await fetch(browser.runtime.getURL('engine.bin'))).arrayBuffer()));
+  return WebExtensionBlocker.deserialize(
+    new Uint8Array(
+      await (await fetch(browser.runtime.getURL('engine.bin'))).arrayBuffer(),
+    ),
+  );
 }
 
 (async () => {
@@ -49,7 +64,8 @@ async function load(): Promise<WebExtensionBlocker> {
     minimumUpdateLatency: 300,
   });
 
-  const incrementBlockedCounter = ({ tabId }: { tabId: number; }) => badge.incr(tabId);
+  const incrementBlockedCounter = ({ tabId }: { tabId: number }) =>
+    badge.incr(tabId);
   badge.enable();
   enable(blocker, incrementBlockedCounter);
 
@@ -92,7 +108,9 @@ async function load(): Promise<WebExtensionBlocker> {
   // attempt a full update of the engine based on remote lists. This usually
   // takes a couple of seconds, mostly to fetch the resources.
   setTimeout(async () => {
-    upgrade(await WebExtensionBlocker.fromLists(fetch, fullLists, blocker.config));
+    upgrade(
+      await WebExtensionBlocker.fromLists(fetch, fullLists, blocker.config),
+    );
     await set('engine', blocker.serialize());
   }, 5000);
 })();
