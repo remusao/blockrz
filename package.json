@@ -32,7 +32,7 @@
     "@cliqz/adblocker-webextension": "^1.20.0",
     "@cliqz/adblocker-webextension-cosmetics": "^1.20.0",
     "@remusao/badger": "^1.2.2",
-    "idb-keyval": "^5.0.1",
+    "idb-keyval": "^5.0.2",
     "webextension-polyfill-ts": "^0.22.0"
   }
 }
