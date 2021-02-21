@@ -1,6 +1,6 @@
 {
   "name": "pico-adblocker",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A super minimal blocker of ads, trackers and annoyances which works out of the box",
   "author": "remusao",
   "license": "MPL-2.0",
@@ -21,7 +21,7 @@
     "@rollup/plugin-node-resolve": "^11.1.1",
     "@rollup/plugin-typescript": "^8.1.1",
     "node-fetch": "^2.6.1",
-    "rollup": "^2.38.2",
+    "rollup": "^2.38.4",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-terser": "^7.0.2",
     "tslint": "^6.1.3",
@@ -29,10 +29,10 @@
     "web-ext": "^5.5.0"
   },
   "dependencies": {
-    "@cliqz/adblocker-webextension": "^1.20.0",
-    "@cliqz/adblocker-webextension-cosmetics": "^1.20.0",
+    "@cliqz/adblocker-webextension": "^1.20.2",
+    "@cliqz/adblocker-webextension-cosmetics": "^1.20.2",
     "@remusao/badger": "^1.2.2",
     "idb-keyval": "^5.0.2",
-    "webextension-polyfill-ts": "^0.24.0"
+    "webextension-polyfill-ts": "^0.25.0"
   }
 }
