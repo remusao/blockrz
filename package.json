@@ -26,7 +26,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "tslint": "^6.1.3",
     "typescript": "^4.1.3",
-    "web-ext": "^5.5.0"
+    "web-ext": "^7.2.0"
   },
   "dependencies": {
     "@cliqz/adblocker-webextension": "^1.20.2",
